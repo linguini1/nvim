@@ -26,11 +26,6 @@ lsp.ensure_installed({
     "json-lsp",
     "cmake",
     "clangd",
-
-    -- Formatters
-    "black",
-    "isort",
-    "prettierd",
 })
 
 cmp.setup({
