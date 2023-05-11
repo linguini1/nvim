@@ -20,10 +20,9 @@ end)
 lsp.ensure_installed({
     "eslint",
     "pyright",
-    "emmet-ls",
-    "css-lsp",
-    "lua-ls",
-    "json-lsp",
+    "emmet_ls",
+    "cssls",
+    "lua_ls",
     "cmake",
     "clangd",
 })
