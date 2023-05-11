@@ -19,6 +19,19 @@ end)
 
 lsp.ensure_installed({
     "eslint",
+    "pyright",
+    "emmet-ls",
+    "css-lsp",
+    "lua-ls",
+    "json-lsp",
+    "cmake",
+    "clangd",
+
+    -- Formatters
+    "black",
+    "isort",
+    "prettierd",
+    "fixjson"
 })
 
 cmp.setup({
