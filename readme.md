@@ -12,3 +12,12 @@ The terminal colours are recommended to match this config's theme, **gruvbox**, 
 
 ## Compiler
 The Clang compiler is required in order to compile some dependencies of this config.
+
+## Features to be added
+
+- Auto-install formatters
+
+### Snippets
+- Auto-fill `self` parameter when function is created inside a Python class
+    - Do not auto-fill `self` parameter when `@staticmethod` decorator is used.
+- Auto-fill `cls` paramter when a function is created with the `@classmethod` decorator in Python

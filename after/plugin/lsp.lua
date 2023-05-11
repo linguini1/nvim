@@ -4,9 +4,8 @@ local cmp_action = require("lsp-zero").cmp_action()
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local ls = require("luasnip")
 
-require("luasnip.loaders.from_lua").load()
-
 -- Luasnippets
+require("luasnip.loaders.from_lua").load()
 ls.setup({
     history = true,
     update_events = { "TextChanged", "TextChangedI" },
@@ -17,6 +16,7 @@ lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
 end)
 
+-- Language servers
 lsp.ensure_installed({
     "eslint",
     "pyright",
@@ -83,8 +83,8 @@ cmp.setup({
 
 -- Autoclose parenthesis on function completion
 cmp.event:on(
-    'confirm_done',
-    cmp_autopairs.on_confirm_done()
+'confirm_done',
+cmp_autopairs.on_confirm_done()
 )
 
 lsp.setup()
