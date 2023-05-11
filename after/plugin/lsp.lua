@@ -31,7 +31,6 @@ lsp.ensure_installed({
     "black",
     "isort",
     "prettierd",
-    "fixjson"
 })
 
 cmp.setup({
