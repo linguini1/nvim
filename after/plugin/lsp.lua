@@ -29,8 +29,10 @@ lsp.ensure_installed({
 
 cmp.setup({
     sources = {
-        { name = "luasnip", option = { show_autosnippets = true } },
+        { name = "nvim_lua" },
         { name = "nvim_lsp" },
+        { name = "path" },
+        { name = "luasnip", option = { show_autosnippets = true } },
     },
     mapping = {
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -83,8 +85,8 @@ cmp.setup({
 
 -- Autoclose parenthesis on function completion
 cmp.event:on(
-'confirm_done',
-cmp_autopairs.on_confirm_done()
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
 )
 
 lsp.setup()
