@@ -36,6 +36,8 @@ return require('packer').startup(function(use)
 
             -- Autocompletion
             { 'saadparwaiz1/cmp_luasnip' }, -- Shows lua snippets in completion menu
+            { 'hrsh7th/cmp-path' },         -- Shows paths in completion menu
+            { 'hrsh7th/cmp-nvim-lua' },     -- Shows nvim api in completion menu
             { 'hrsh7th/nvim-cmp' },         -- Required
             { 'hrsh7th/cmp-nvim-lsp' },     -- Required
             { 'L3MON4D3/LuaSnip' },         -- Required
