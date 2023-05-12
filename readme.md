@@ -1,4 +1,6 @@
-# linguini NeoVim Config
+# linguini Neovim Config
+
+Clone this repository on your system's nvim runtime path. For Windows, this is located on in `Users/<user>/AppData/Local/nvim` (cloning in the `Local` directory will create the nvim directory)
 
 ## Fonts
 In order to have the correct font, install the [JetBrains Mono Nerd Font](https://www.nerdfonts.com/font-downloads)
