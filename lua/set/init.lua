@@ -20,3 +20,11 @@ local options = {
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+-- Diagnostics
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    update_in_insert = true,
+    underline = true,
+})
