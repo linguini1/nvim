@@ -15,6 +15,9 @@ local options = {
     autowrite = true, -- File save
     autowriteall = true,
     autoindent = true,
+    fillchars = {
+        eob = " ",
+    },
 }
 
 for k, v in pairs(options) do
