@@ -1,4 +1,5 @@
 require("linguini")
 require("set")
 require("remap")
+require("automation")
 require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnippets/"})
