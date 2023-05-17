@@ -82,10 +82,6 @@ cmp.setup({
             ls.lsp_expand(args.body)
         end
     },
-    experimental = {
-        ghost_text = true, -- Autocomplete option appears as text while you type
-        native_menu = false,
-    }
 })
 
 -- Autoclose parenthesis on function completion
