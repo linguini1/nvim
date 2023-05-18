@@ -1,7 +1,9 @@
+-- Lsp-zero
 local lsp = require('lsp-zero').preset("recommended")
 local cmp = require("cmp")
-local cmp_action = require("lsp-zero").cmp_action()
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+-- Luasnip
 local ls = require("luasnip")
 
 -- Luasnippets
