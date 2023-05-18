@@ -44,9 +44,12 @@ end
 vim.api.nvim_create_user_command("RunPytest",
     function(opts)
         local test_file = vim.api.nvim_buf_get_name(0) -- Get filename of current buffer
-        local bufnr = vim.api.nvim_get_current_buf()   -- Get current buffer #
+        local bufnr = vim.api.nvim_get_current_buf()   -- Get current buffer
+
+        -- Clear namespace in case tests were run previously
         local ns = vim.api.nvim_create_namespace("test-run")
-        local tests = {}                               -- Store test data
+        vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
+        local tests = {} -- Store test data
         vim.fn.jobstart({ "pytest", test_file, "--verbose", "--no-header", "--no-summary" },
             {
                 stdout_buffered = true,
