@@ -1,3 +1,5 @@
+local packer = require("packer")
+
 -- Packer bootstrapping
 local ensure_packer = function()
     local fn = vim.fn
@@ -12,13 +14,13 @@ end
 
 local packer_bootsrap = ensure_packer()
 
-return require('packer').startup(function(use)
+return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use "ellisonleao/gruvbox.nvim"  -- Colour scheme
+    use "ellisonleao/gruvbox.nvim" -- Colour scheme
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -64,8 +66,8 @@ return require('packer').startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     }
     use 'nvim-lualine/lualine.nvim'
-
     if packer_bootsrap then
-        require("packer").sync()
+        packer.sync()
     end
+    packer.update() -- Auto-update on startup
 end)
