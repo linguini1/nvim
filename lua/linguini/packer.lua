@@ -69,5 +69,4 @@ return packer.startup(function(use)
     if packer_bootsrap then
         packer.sync()
     end
-    packer.update() -- Auto-update on startup
 end)
