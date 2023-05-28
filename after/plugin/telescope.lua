@@ -19,3 +19,4 @@ vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = "Find git commit
 vim.keymap.set('n', '<leader>fb', builtin.git_branches, { desc = "Find git branches using Telescope." })
 vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = "Find symbols using Telescope." })
 vim.keymap.set('n', '<leader>fp', builtin.live_grep, { desc = "Find token using live grep in Telescope." })
+vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = "Show references in a Telescope window." })
