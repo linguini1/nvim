@@ -28,6 +28,15 @@ lsp.ensure_installed({
     "cmake",
     "clangd",
 })
+lsp.configure("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            }
+        }
+    }
+})
 
 -- Completion setup
 cmp.setup({

@@ -15,4 +15,4 @@ null_ls.setup({
     sources = sources,
 })
 
-vim.keymap.set("n", "gq", "<Cmd>lua vim.lsp.buf.format({async = true})<CR>", {desc = "Format the current buffer."})
+
