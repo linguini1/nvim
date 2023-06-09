@@ -7,7 +7,7 @@ local sources = {
     formatting.prettierd.with({
         filetypes = { "html", "css", "json", "markdown", }
     }),
-    diagnostics.flake8.with({extra_args = {"--max-line-length", "120"}})
+    diagnostics.flake8.with({extra_args = {"--max-line-length", "120", "--ignore=E203"}})
 }
 
 null_ls.setup({
