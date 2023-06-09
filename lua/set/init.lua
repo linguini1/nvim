@@ -20,8 +20,9 @@ local options = {
     },
     scrolloff = 10,
     colorcolumn = "120",
-    foldmethod = "indent",
-    foldlevel = 99
+    foldmethod = "expr",
+    foldlevel = 99,
+    foldexpr = "nvim_treesitter#foldexpr()"
 }
 
 for k, v in pairs(options) do
