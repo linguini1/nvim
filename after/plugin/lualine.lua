@@ -40,5 +40,6 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_c = { { "filename", path = 1 }, current_scope },
+		lualine_y = { "os.date('%Y-%m-%d')", "progress" },
 	},
 })
