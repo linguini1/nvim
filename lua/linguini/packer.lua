@@ -66,6 +66,7 @@ return packer.startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     }
     use 'nvim-lualine/lualine.nvim'
+    use 'eandrju/cellular-automaton.nvim'
     if packer_bootsrap then
         packer.sync()
     end

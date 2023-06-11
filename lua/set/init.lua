@@ -22,7 +22,8 @@ local options = {
     colorcolumn = "120",
     foldmethod = "expr",
     foldlevel = 99,
-    foldexpr = "nvim_treesitter#foldexpr()"
+    foldexpr = "nvim_treesitter#foldexpr()",
+    syntax = "false",
 }
 
 for k, v in pairs(options) do
