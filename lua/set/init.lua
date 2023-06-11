@@ -12,6 +12,7 @@ local options = {
     incsearch = true,     -- Allows for incremental search (allows stuff like vim.* for lots of matching)
     hlsearch = true,      -- Search highlighting
     termguicolors = true, -- Change terminal colours to match GUI
+    background = "dark",
     autowrite = true,     -- File save
     autowriteall = true,
     autoindent = true,
