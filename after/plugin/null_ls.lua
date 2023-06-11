@@ -8,6 +8,7 @@ local sources = {
 		filetypes = { "html", "css", "json", "markdown" },
 	}),
 	formatting.stylua,
+    formatting.markdownlint,
 	diagnostics.flake8.with({ extra_args = { "--max-line-length", "120", "--ignore=E203" } }),
 }
 
