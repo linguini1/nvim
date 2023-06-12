@@ -1,5 +1,6 @@
 -- Custom component for current scope
-local valid_scopes = { "function_definition", "class_definition", "function_declaration" }
+local valid_scopes =
+	{ "function_definition", "class_definition", "function_declaration", "jsx_element", "jsx_self_closing_element" }
 local function is_valid_scope(node_type)
 	for _, value in ipairs(valid_scopes) do
 		if node_type == value then
