@@ -15,7 +15,7 @@ vim.keymap.set("n", "<leader>gl", ":Git log<CR>", { desc = "Check git log." })
 
 -- Pushing/pulling
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { desc = "Push changes to the git repo." })
-vim.keymap.set("n", "<leader>gf", ":Git fetch<CR>", { desc  "Fetch changes from the git repo." })
+vim.keymap.set("n", "<leader>gf", ":Git fetch<CR>", { desc = "Fetch changes from the git repo." })
 vim.keymap.set("n", "<leader>gpu", ":Git pull<CR>", { desc = "Pull changes from the git repo." })
 
 -- Branches
