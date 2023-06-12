@@ -11,6 +11,7 @@ vim.keymap.set("n", "<leader>gc", ":Git commit -m \"\"<left>", { desc = "Set up 
 vim.keymap.set("n", "<leader>gca", ":Git commit -a -m \"\"<left>",
     { desc = "Sets up a git commit which automatically adds modified files." })
 vim.keymap.set("n", "<leader>gs", ":Git status<CR>", { desc = "Check git status." })
+vim.keymap.set("n", "<leader>gl", ":Git log<CR>", { desc = "Check git log." })
 
 -- Pushing/pulling
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { desc = "Push changes to the git repo." })
