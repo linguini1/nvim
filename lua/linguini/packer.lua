@@ -21,7 +21,7 @@ return packer.startup(function(use)
 		tag = "0.1.1",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
-	use("ellisonleao/gruvbox.nvim") -- Colour scheme
+	use({ "ellisonleao/gruvbox.nvim" })
 	use("mbbill/undotree")
 	use("tpope/vim-fugitive")
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
