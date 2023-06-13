@@ -25,7 +25,10 @@ local options = {
     foldlevel = 99,
     foldexpr = "nvim_treesitter#foldexpr()",
     syntax = "false",
-    titlestring = '%{expand("%:p")}'
+    titlestring = '%{expand("%:p")}',
+    spell = true,
+    spelllang = "en_ca",
+    spellsuggest="5",
 }
 
 for k, v in pairs(options) do
