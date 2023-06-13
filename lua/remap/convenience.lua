@@ -1,1 +1,2 @@
-vim.remap.set("n", "<leader>sc", ":source $MYVIMRC", { desc = "Reload nvim config." })
+vim.keymap.set("n", "<leader>uc", "<Cmd>source $MYVIMRC<CR>", { desc = "Reload nvim config." })
+
