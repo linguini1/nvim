@@ -6,3 +6,5 @@ docstrings
 yaml
 linter
 flake8
+config
+nvim
