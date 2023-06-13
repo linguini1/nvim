@@ -27,7 +27,6 @@ lsp.ensure_installed({
 	"lua_ls",
 	"cmake",
 	"clangd",
-	"marksman",
 })
 lsp.configure("lua_ls", {
 	settings = {
