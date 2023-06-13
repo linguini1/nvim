@@ -8,7 +8,6 @@ local sources = {
 		filetypes = { "html", "css", "json", "markdown", "javascriptreact", "javascript" },
 	}),
 	formatting.stylua,
-	diagnostics.textlint,
 	diagnostics.flake8.with({ extra_args = { "--max-line-length", "120", "--ignore=E203" } }),
 	diagnostics.eslint,
 }
