@@ -19,9 +19,18 @@ development.
 
 ### Windows
 Install [LLVM](llvm), the`win64.exe` installer.
+Install make via chocolatey: `choco install make`
 
 In order to avoid using Visual Studio, please install [Mingw64](mingw). You will want to select the `x86_64-seh-msvcrt`
 version. An extra compiler flag will have to be used in order to compile programs, see [here](compiler-workaround).
+
+### Clangd Nuances
+Because clangd requires a `compiler_commands.json` file in order to perform checks accurately, an additional dependency
+must be installed to generate this file from Makefile commands (Cmake does this automatically but Makefiles do not).
+
+Many Linux users suggest using [Bear](bear). On Windows, I found it easiest to use [compiledb](compiledb), a Python
+package that works similarly right out of the box. Install it globally with pip and you can generate the compile 
+commands from a Makefile.
 
 ## Features to be added
 
@@ -36,3 +45,5 @@ version. An extra compiler flag will have to be used in order to compile program
 [compiler-workaround]: https://www.nerdfonts.com/font-downloads
 [llvm]: https://github.com/llvm/llvm-project/releases
 [mingw]: https://github.com/niXman/mingw-builds-binaries/releases
+[bear]: https://github.com/rizsotto/Bear
+[compiledb]: https://github.com/nickdiego/compiledb
