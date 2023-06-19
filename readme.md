@@ -11,7 +11,7 @@ for the Windows terminal. This should be done under the default profiles.
 
 ## Terminal Colours
 The terminal colours are recommended to match this config's theme, **gruvbox hard**, for best results. You can find the
-hex colour codes [here][]
+hex colour codes [here][gruvbox]
 
 ## Compiler
 The clang compiler is required in order to compile some dependencies of this config, and to ensure integration for C/C++
