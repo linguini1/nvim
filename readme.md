@@ -32,7 +32,7 @@ commands from a Makefile.
 ### Snippets
 - Auto-fill `self` parameter when function is created inside a Python class
     - Do not auto-fill `self` parameter when `@staticmethod` decorator is used.
-- Auto-fill `cls` paramter when a function is created with the `@classmethod` decorator in Python
+- Auto-fill `cls` parameter when a function is created with the `@classmethod` decorator in Python
 
 [nerd-fonts]: https://www.nerdfonts.com/font-downloads
 [gruvbox]: https://github.com/morhetz/gruvbox
