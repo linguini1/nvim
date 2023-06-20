@@ -17,13 +17,19 @@ hex colour codes [here][gruvbox]
 In order to avoid Visual Studio code for clang on Windows (and some annoying side effects of having to specify a
 target when compiling), this config uses gcc.
 
-### Clangd Nuances
+### clangd Nuances
 Because clangd requires a `compiler_commands.json` file in order to perform checks accurately, an additional dependency
 must be installed to generate this file from Makefile commands (Cmake does this automatically but Makefiles do not).
 
 Many Linux users suggest using [Bear][bear]. On Windows, I found it easiest to use [compiledb][compiledb], a Python
 package that works similarly right out of the box. Install it globally with pip and you can generate the compile 
 commands from a Makefile.
+
+In order to use gcc with clangd and not have errors about missing header files, the best workaround I found was to add
+an environment variable called `CLANGD_FLAGS` to the system, with the value `--query-driver=<abs path to gcc/g++>`. This
+ensures that clangd knows how to find the header files by querying gcc/g++ and I don't have to include this absolute
+path in my configuration in case I end up using clang on Linux or store gcc elsewhere on Windows. Note that gcc/g++ can
+be represented in the absolute path as `g*`.
 
 ## Features to be added
 
