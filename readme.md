@@ -13,17 +13,9 @@ for the Windows terminal. This should be done under the default profiles.
 The terminal colours are recommended to match this config's theme, **gruvbox hard**, for best results. You can find the
 hex colour codes [here][gruvbox]
 
-## Compiler
-The clang compiler is required in order to compile some dependencies of this config, and to ensure integration for C/C++
-development.
-
-### Windows
-Install [LLVM][llvm], the`win64.exe` installer.
-Install make via chocolatey: `choco install make`
-
-In order to avoid using Visual Studio, please install [Mingw64][mingw]. You will want to select the `x86_64-seh-msvcrt`
-version. An extra compiler flag of `-target x86_64-pc-windows-gnu` will have to be used in order to compile programs,
-see [here][compiler-workaround].
+### Compiler
+In order to avoid Visual Studio code for clang on Windows (and some annoying side effects of having to specify a
+target when compiling), this config uses gcc.
 
 ### Clangd Nuances
 Because clangd requires a `compiler_commands.json` file in order to perform checks accurately, an additional dependency
