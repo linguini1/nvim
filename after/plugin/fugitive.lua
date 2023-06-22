@@ -1,5 +1,5 @@
 -- Adding
-vim.keymap.set("n", "<leader>ga", ":Git add", { desc = "Set up git add." })
+vim.keymap.set("n", "<leader>ga", ":Git add ", { desc = "Set up git add." })
 vim.keymap.set("n", "<leader>gaa", ":Git add .<CR>", { desc = "Add all files to git." })
 
 -- Restoring
