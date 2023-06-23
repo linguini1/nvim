@@ -12,10 +12,23 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
+syn case ignore
+
+" Comment
+syn keyword asmTodo          contained TODO FIXME NOTE
+syn region asmComment        start=";" end="$" keepend contains=asmTodo,@Spell display
+
 "Identifiers
-syn match asmIdentifier "\<[a-zA-z_][a-zA-z0-9_]*\>" display
-syn match asmRegister "\<[rR][0-3]\>" display
-syn keyword asmSpecialRegister SP PC FR LR sp pc fr lr
+syn match asmIdentifier     "[[:alpha:]_][[:alnum:]]*" display
+syn match asmRegister       "[rR][0-3]" display
+syn keyword asmSpecialRegister SP PC FR LR
+
+" Delimiting
+syn match comma             "\,"     display
+syn match squarebrackets    "\]"    display
+syn match squarebrackets    "\["    display
+syn match curlybrackets     "}"     display
+syn match curlybrackets     "{"     display
 
 " Data types
 syn match asmDec                "#\<[0-9]\d*\>"             display
@@ -33,19 +46,11 @@ syn keyword asmArithmeticOp SUB ADD MUL DIV CMP sub add mul div cmp nextgroup=as
 syn keyword asmLogicalOp AND OR NOT LSR LSL ROR ROL and or not lsr lsl ror rol nextgroup=asmRegister
 syn keyword asmMemoryOp MOV LDR STR LEA PUSH POP mov ldr str lea push pop nextgroup=asmRegister
 syn keyword asmDataOp DCD EQU dcd equ nextgroup=asmHex,asmBin,asmDec,asmString,asmCharacter
-syn match asmBranchOp "\<B[a-zA-Z]\{2}\>"       display
-syn match asmBranchLinkOp "\<BL[a-zA-Z]\{2}\>"  display
+syn match asmBranchOp "B[[:alpha:]]\{2}\>"       display
+syn match asmBranchLinkOp "BL[[:alpha:]]\{2}\>"  display
 
-" Comment
-syn keyword asmTodo          contained TODO FIXME NOTE
-syn region asmComment        start=";" end="$" keepend contains=asmTodo,@Spell display
 
-" Delimiting
-syn match comma             ","     display
-syn match squarebrackets    "\]"    display
-syn match squarebrackets    "\["    display
-syn match curlybrackets     "}"     display
-syn match curlybrackets     "{"     display nextgroup=asmSpecialRegister,asmRegister
+syn case match
 
 " Link to highlights
 hi def link asmHex              Number
@@ -59,20 +64,20 @@ hi def link asmCharacterEscape	Special
 hi def link asmComment          Comment
 hi def link asmTodo             Todo
 hi def link asmIdentifier       Identifier
-hi def link asmRegister         Keyword
-hi def link asmSpecialRegister  Keyword
+hi def link asmRegister         Type " Registers are not types but this is the best colour
+hi def link asmSpecialRegister  Type
 
-hi def link comma               Keyword
+hi def link comma               Delimiter
 hi def link brackets            Delimiter
 hi def link squarebrackets      Delimiter
 hi def link curlybrackets       Delimiter
 
 hi def link asmArithmeticOp     Operator
 hi def link asmLogicalOp        Operator
-hi def link asmMemoryOp         Statement
-hi def link asmDataOp           Statement
-hi def link asmBranchOp         Statement
-hi def link asmBranchLinkOp     Statement
+hi def link asmMemoryOp         Function
+hi def link asmDataOp           Define
+hi def link asmBranchOp         Conditional
+hi def link asmBranchLinkOp     Conditional
 
 let b:current_syntax = "orgasm"
 
