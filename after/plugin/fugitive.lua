@@ -20,7 +20,7 @@ vim.keymap.set("n", "<leader>gpu", ":Git pull<CR>", { desc = "Pull changes from 
 
 -- Branches
 vim.keymap.set("n", "<leader>gch", ":Git checkout ", { desc = "Checkout to different branch." })
-vim.keymap.set("n", "<leader>gb", ":Git branch<CR>", { desc = "List git branches." })
+vim.keymap.set("n", "<leader>gbr", ":Git branch<CR>", { desc = "List git branches." })
 
 -- Merging
 vim.keymap.set("n", "<leader>gm", ":Git merge ", { desc = "Git merge command." })
