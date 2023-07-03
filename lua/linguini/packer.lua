@@ -24,6 +24,7 @@ return packer.startup(function(use)
 	use({ "ellisonleao/gruvbox.nvim" })
 	use("mbbill/undotree")
 	use("tpope/vim-fugitive")
+    use("lewis6991/gitsigns.nvim")
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("nvim-treesitter/playground")
 	use({
