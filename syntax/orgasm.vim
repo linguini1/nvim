@@ -35,7 +35,7 @@ syn match asmDec                "#\<[0-9]\d*\>"             display
 syn match asmHex                "#\<0x[0-9a-fA-F]\+\>"      display
 syn match asmBin                "#\<0b[0-1]\+\>"            display
 syn match asmCharacterEscape	"\\."                       contained display
-syn match asmCharacter          "'.'"                       contains=asmCharacterEscape display
+syn match asmCharacter          "'.\{1,2}'"                 contains=asmCharacterEscape display
 syn match asmStringEscape       "\\\_."                     contained display
 syn match asmStringEscape       "\\\%(\o\{3}\|00[89]\)"     contained display
 syn match asmStringEscape       "\\x\x\+"                   contained display
