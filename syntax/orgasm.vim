@@ -47,7 +47,9 @@ syn keyword asmLogicalOp AND OR NOT LSR LSL ROR ROL and or not lsr lsl ror rol n
 syn keyword asmMemoryOp MOV LDR STR LEA PUSH POP mov ldr str lea push pop nextgroup=asmRegister
 syn keyword asmDataOp DCD EQU dcd equ nextgroup=asmHex,asmBin,asmDec,asmString,asmCharacter
 syn match asmBranchOp "B[[:alpha:]]\{2}\>"       display
+syn keyword asmBranchOp B
 syn match asmBranchLinkOp "BL[[:alpha:]]\{2}\>"  display
+syn keyword asmBranchOp BL
 
 
 syn case match
