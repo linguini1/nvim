@@ -18,10 +18,6 @@ vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { desc = "Push changes to the
 vim.keymap.set("n", "<leader>gf", ":Git fetch<CR>", { desc = "Fetch changes from the git repo." })
 vim.keymap.set("n", "<leader>gpu", ":Git pull<CR>", { desc = "Pull changes from the git repo." })
 
--- Branches
-vim.keymap.set("n", "<leader>gch", ":Git checkout ", { desc = "Checkout to different branch." })
-vim.keymap.set("n", "<leader>gbr", ":Git branch<CR>", { desc = "List git branches." })
-
 -- Merging
 vim.keymap.set("n", "<leader>gm", ":Git merge ", { desc = "Git merge command." })
 vim.keymap.set("n", "<leader>gmm", ":Git merge main", { desc = "Merge main into the current branch." })
