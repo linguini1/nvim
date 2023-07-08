@@ -16,6 +16,12 @@ ls.setup({
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
+    vim.keymap.set(
+        "n",
+        "gr",
+        "<Cmd>Telescope lsp_references<CR>",
+        { buffer = true, desc = "Show references in a Telescope window." }
+    )
 end)
 
 -- Language servers
