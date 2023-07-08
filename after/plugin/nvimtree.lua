@@ -4,7 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup({
-    hijack_cursor = true, -- Cursor on first letter of file name during nav
+    hijack_cursor = true, -- Cursor on first letter of file name during navigation
 })
 
 -- Tree commands
