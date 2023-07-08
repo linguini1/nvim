@@ -1,39 +1,33 @@
 vim.g.mapleader = " " -- Leader key
 
-local options = {
-    nu = true,   -- Line numbers
-    rnu = true,  -- Relative line numbers
-    tabstop = 4, -- 4 space indents
-    softtabstop = 4,
-    shiftwidth = 4,
-    expandtab = true,
-    smartindent = true,   -- auto-indent
-    wrap = false,         -- No line wrapping
-    incsearch = true,     -- Allows for incremental search (allows stuff like vim.* for lots of matching)
-    hlsearch = true,      -- Search highlighting
-    termguicolors = true, -- Change terminal colours to match GUI
-    background = "dark",
-    autowrite = true,     -- File save
-    autowriteall = true,
-    autoindent = true,
-    fillchars = {
-        eob = " ",
-    },
-    scrolloff = 10,
-    colorcolumn = "120",
-    foldmethod = "expr",
-    foldlevel = 99,
-    foldexpr = "nvim_treesitter#foldexpr()",
-    syntax = "false",
-    titlestring = '%{expand("%:p")}',
-    spell = true,
-    spelllang = "en_ca",
-    spellsuggest="5",
+vim.opt.nu = true     -- Line numbers
+vim.opt.rnu = true    -- Relative line numbers
+vim.opt.tabstop = 4   -- 4 space indents
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true   -- auto-indent
+vim.opt.wrap = false         -- No line wrapping
+vim.opt.incsearch = true     -- Allows for incremental search (allows stuff like vim.* for lots of matching)
+vim.opt.hlsearch = true      -- Search highlighting
+vim.opt.termguicolors = true -- Change terminal colours to match GUI
+vim.opt.background = "dark"
+vim.opt.autowrite = true     -- File save
+vim.opt.autowriteall = true
+vim.opt.autoindent = true
+vim.opt.fillchars = {
+    eob = " ",
 }
-
-for k, v in pairs(options) do
-    vim.opt[k] = v
-end
+vim.opt.scrolloff = 10
+vim.opt.colorcolumn = "120"
+vim.opt.foldmethod = "expr"
+vim.opt.foldlevel = 99
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.syntax = "false"
+vim.opt.titlestring = '%{expand("%:p")}'
+vim.opt.spell = true
+vim.opt.spelllang = "en_ca"
+vim.opt.spellsuggest = "5"
 
 -- Diagnostics
 vim.diagnostic.config({
