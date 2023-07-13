@@ -19,7 +19,7 @@ syn keyword asmTodo          contained TODO FIXME NOTE
 syn region asmComment        start=";" end="$" keepend contains=asmTodo,@Spell display
 
 "Identifiers
-syn match asmIdentifier     "[[:alpha:]_][[:alnum:]]*" display
+syn match asmIdentifier     "[[:alpha:]_][[:alnum:]_]*" display
 syn match asmRegister       "[rR][0-3]" display
 syn keyword asmSpecialRegister SP PC FR LR
 
