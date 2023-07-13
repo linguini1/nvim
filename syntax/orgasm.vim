@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language: Original gol-16 Assembly Language
 " Maintainer: Matteo Golin matteo.golin@gmail.com
-" Last Change: 2023-06-21
+" Last Change: 2023-07-06
 
 " quit when syntax file was already loaded
 if exists("b:current_syntax")
