@@ -6,7 +6,7 @@ local settings = {
 		title = "Header",
 		margin = 3,
 		content = require("startup.custom_headers").conway,
-		highlight = "GruvboxFg0",
+		highlight = "@variable",
 		oldfiles_amount = 0,
 	},
 	clock = {
@@ -21,7 +21,7 @@ local settings = {
 		fold_section = false,
 		title = "",
 		margin = 3,
-		highlight = "GruvboxFg0",
+		highlight = "@variable",
 	},
 	statistics = {
 		type = "text",
@@ -40,7 +40,7 @@ local settings = {
 		fold_section = false,
 		title = "",
 		margin = 3,
-		highlight = "GruvboxFg0",
+		highlight = "@variable",
 	},
 	parts = {
 		"header",
