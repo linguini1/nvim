@@ -17,7 +17,7 @@ syn case ignore
 syn match mcSignal "\<[a-zA-Z][a-zA-Z0-9]*" display
 
 " State labels
-syn match mcStateLabel "\<[[:alpha:]_][[:alnum:]_]*:" display
+syn match mcStateLabel "\<[[:alpha:]_][[:alnum:]_]*\s*:" display
 
 " Comment
 syn keyword mcTodo contained TODO
