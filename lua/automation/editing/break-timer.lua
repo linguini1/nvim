@@ -67,13 +67,20 @@ function M.setup(options)
 	end, { desc = "Set the break timer interval in minutes. Will apply to next timer.", nargs = 1 })
 
 	vim.api.nvim_create_user_command("BreakWhen", function()
-		local remaining = math.ceil(timer:get_due_in() / 60000)
-		vim.print("Break in " .. remaining .. " minutes.")
+		if enabled then
+			local remaining = math.ceil(timer:get_due_in() / 60000)
+			vim.print("Break in " .. remaining .. " minutes.")
+		else
+			vim.print("Breaks disabled.")
+		end
 	end, { desc = "Display how long remains until the next break." })
 
 	vim.api.nvim_create_user_command("BreakNow", function()
-		timer:stop()
-		on_timer()
+		if enabled then
+			on_timer()
+		else
+			vim.print("Breaks must be enabled.")
+		end
 	end, { desc = "Start the next break now." })
 
 	vim.api.nvim_create_user_command("BreakDisable", function()
