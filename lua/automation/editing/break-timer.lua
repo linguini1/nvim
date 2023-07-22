@@ -22,6 +22,7 @@ function M.setup(options)
 
 	-- Create timer var to be used
 	local timer = vim.loop.new_timer()
+	local enabled = true
 
 	-- Define timer complete action
 	local function on_timer()
@@ -57,6 +58,7 @@ function M.setup(options)
 		end
 	end
 
+	-- User commands for interacting with break timer
 	vim.api.nvim_create_user_command("BreakEvery", function(opts)
 		options.interval = tonumber(opts.args) * 60000
 		local remaining = timer:get_due_in()
@@ -73,6 +75,26 @@ function M.setup(options)
 		timer:stop()
 		on_timer()
 	end, { desc = "Start the next break now." })
+
+	vim.api.nvim_create_user_command("BreakDisable", function()
+		if enabled then
+			timer:stop()
+			vim.notify("Breaks disabled.")
+			enabled = false
+		else
+			vim.notify("Breaks already disabled.")
+		end
+	end, { desc = "Disable breaks." })
+
+	vim.api.nvim_create_user_command("BreakEnable", function()
+		if enabled then
+			vim.notify("Breaks already enabled.")
+		else
+			timer:again()
+			vim.notify("Breaks enabled.")
+			enabled = true
+		end
+	end, { desc = "Enable breaks." })
 
 	timer:start(options.interval, options.interval, vim.schedule_wrap(on_timer)) -- Start timer
 end
