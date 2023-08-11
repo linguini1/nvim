@@ -34,6 +34,7 @@ lsp.ensure_installed({
 	"lua_ls",
 	"cmake",
 	"clangd",
+	"rust_analyzer",
 })
 lspconfig.lua_ls.setup({
 	settings = {
@@ -51,10 +52,10 @@ lspconfig.clangd.setup({
 -- Completion setup
 cmp.setup({
 	sources = {
+		{ name = "luasnip", option = { show_autosnippets = true } },
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = "luasnip", option = { show_autosnippets = true } },
 	},
 	mapping = {
 		["<Tab>"] = cmp.mapping(function(fallback)
