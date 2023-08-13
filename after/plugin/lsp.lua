@@ -6,8 +6,6 @@ local lspconfig = require("lspconfig")
 
 -- Luasnip
 local ls = require("luasnip")
-
--- Luasnippets
 require("luasnip.loaders.from_lua").load()
 ls.setup({
 	history = true,
@@ -86,7 +84,7 @@ cmp.setup({
 				fallback()
 			end
 		end),
-		["<C-h>"] = cmp.mapping(function(fallback) -- Move chocie backward
+		["<C-h>"] = cmp.mapping(function(fallback) -- Move choice backward
 			if ls.choice_active() then
 				ls.change_choice(-1)
 			else
