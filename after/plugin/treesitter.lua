@@ -1,6 +1,6 @@
+local ts_utils = require("nvim-treesitter.ts_utils")
 require("nvim-treesitter.install").compilers = { "gcc" }
 require("nvim-treesitter.configs").setup({
-	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = {
 		"c",
 		"lua",
@@ -17,24 +17,50 @@ require("nvim-treesitter.configs").setup({
 		"markdown",
 		"comment",
 	},
-
-	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
-
-	-- Automatically install missing parsers when entering buffer
-	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
 	auto_install = true,
-
 	highlight = {
 		enable = true,
-
-		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-		-- Using this option may slow down your editor, and you may see some duplicate highlights.
-		-- Instead of true it can also be a list of languages
 		additional_vim_regex_highlighting = false,
 	},
 })
 
 -- Custom TO DO highlight
 vim.api.nvim_set_hl(0, "@text.todo", { link = "GruvboxRed" })
+
+-- Treesitter auto-format strings
+vim.api.nvim_create_augroup("py-fstring", { clear = true })
+vim.api.nvim_create_autocmd("InsertCharPre", {
+	pattern = { "*.py" },
+	group = "py-fstring",
+	callback = function(opts)
+		-- Only run if f-string escape character is typed
+		if vim.v.char ~= "{" then
+			return
+		end
+
+		-- Get node and return early if not in a string
+		local node = vim.treesitter.get_node()
+
+		if node:type() ~= "string" then
+			node = node:parent()
+		end
+
+		if node:type() ~= "string" then
+			return
+		end
+
+		-- Get parent string node and its range
+		local row, col, _, _ = vim.treesitter.get_node_range(node:parent())
+		col = col + 1
+
+		-- Return early if string is already a format string
+		local first_char = vim.api.nvim_buf_get_text(opts.buf, row, col, row, col + 1, {})[1]
+		if first_char == "f" then
+			return
+		end
+
+		-- Otherwise, make the string a format string
+		vim.api.nvim_input("<Esc>m'" .. row + 1 .. "gg" .. col + 1 .. "|if<Esc>`'la")
+	end,
+})
