@@ -16,7 +16,6 @@ return {
         i(1, "fn_name"),
         d(2, function(args)
             local in_class = false
-            local decorator_node = nil
             local node = vim.treesitter.get_node()
 
             -- Move up the tree until a class node is found
@@ -26,9 +25,18 @@ return {
                 node = node:parent()
             end
 
-            -- Decide default args based on nodes
+            local pos = vim.api.nvim_win_get_cursor(0)
+            local decorator = vim.api.nvim_buf_get_lines(0, pos[1] - 3, pos[1] - 2, false)
+
+            -- Decide default arguments based on nodes
             local arguments = "("
-            if in_class then arguments = arguments .. "self, " end
+            if in_class then
+                if string.find(decorator[1], "classmethod") then
+                    arguments = arguments .. "cls, "
+                elseif not string.find(decorator[1], "staticmethod") then
+                    arguments = arguments .. "self, "
+                end
+            end
 
             return sn(nil, {
                 t({ arguments }),
