@@ -36,12 +36,12 @@ return {
 
                 return sn(nil, {
                     t({ arguments }),
-                    i(1, ""),
+                    i(1, "params"),
                     t({ ") -> " }),
                 })
             end),
-            i(3, ""),
+            i(3, "None"),
             t({ ":", "\t" }),
-            i(0, ""),
+            i(0, "pass"),
         }),
     }
