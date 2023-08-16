@@ -8,7 +8,7 @@ local sources = {
 	formatting.prettierd.with({
 		filetypes = { "html", "css", "json", "markdown", "javascriptreact", "javascript" },
 	}),
-	formatting.stylua,
+	formatting.stylua.with({extra_args = {"--indent_type=Spaces"}}),
 	formatting.clang_format.with({
 		filetypes = { "c", "c++" },
 		extra_args = { "-style={IndentWidth: 4, ColumnLimit: 120, AllowShortIfStatementsOnASingleLine: true}" },
