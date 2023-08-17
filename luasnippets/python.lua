@@ -7,22 +7,17 @@ return {
             t("main()"),
         }),
     }),
-},
--- Autosnippets
-{
-    s({ trig = "!author", dscr = "Set __author__ to my name." }, { t('__author__ = "Matteo Golin"') }),
     s({ trig = "def", dscr = "Create a function/method definition with standard parameters." }, {
         t({ "def " }),
         i(1, "fn_name"),
-        d(2, function(args)
+        d(2, function(_)
+            -- Immediate parent must be a class definition (first method created in a class will have the current node
+            -- as a class definition)
             local in_class = false
             local node = vim.treesitter.get_node()
-
-            -- Move up the tree until a class node is found
-            while node ~= nil do
-                in_class = node:type() == "class_definition"
-                if in_class then break end
-                node = node:parent()
+            if node then
+                in_class = node:type() == "class_definition" or node:parent():type() == "class_definition"
+                if node:type() == "ERROR" then in_class = node:parent():parent():type() == "class_definition" end
             end
 
             local pos = vim.api.nvim_win_get_cursor(0)
@@ -48,4 +43,8 @@ return {
         t({ ":", "\t" }),
         i(0, "pass"),
     }),
+},
+-- Autosnippets
+{
+    s({ trig = "!author", dscr = "Set __author__ to my name." }, { t('__author__ = "Matteo Golin"') }),
 }
