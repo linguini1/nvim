@@ -3,16 +3,17 @@ local lsp = require("lsp-zero").preset("recommended")
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local lspconfig = require("lspconfig")
-
--- Luasnip
 local ls = require("luasnip")
 require("luasnip.loaders.from_lua").load()
+
+-- Luasnip
 ls.setup({
     history = true,
     update_events = { "TextChanged", "TextChangedI" },
     enable_autosnippets = true,
 })
 
+-- LSP keymaps
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
     vim.keymap.set(
@@ -49,6 +50,49 @@ lspconfig.lua_ls.setup({
 lspconfig.clangd.setup({
     arguments = { "-Wall" },
 })
+lspconfig.pyright.setup({
+    settings = {
+        python = {
+            analysis = {
+                diagnosticSeverityOverrides = {
+                    reportPropertyTypeMismatch = true,
+                    reportImportCycles = "warning",
+                    reportUnusedFunction = "warning",
+                    reportDuplicateImport = "warning",
+                    reportPrivateUsage = "warning",
+                    reportTypeCommentUsage = "warning",
+                    reportConstantRedefinition = "error",
+                    reportDeprecated = "warning",
+                    reportIncompatibleMethodOverride = "error",
+                    reportIncompatibleVariableOverride = "error",
+                    reportInconsistentConstructor = "error",
+                    reportOverlappingOverload = "error",
+                    reportMissingSuperCall = "error",
+                    reportUnititializedInstanceVariable = "error",
+                    reportUnknownParameterType = "warning",
+                    reportUnknownArgumentType = "warning",
+                    reportUnknownLambdaType = "warning",
+                    reportUnknownVariableType = "warning",
+                    reportUnknownMemberType = "warning",
+                    reportMissingParameterType = "error",
+                    reportMissingTypeArgument = "warning",
+                    reportMissingTypeArgument = "warning",
+                    reportUnnecessaryIsInstance = "warning",
+                    reportUnnecessaryCast = "warning",
+                    reportUnnecessaryComparison = "warning",
+                    reportUnnecessaryContains = "warning",
+                    reportAssertAlwaysTrue = "warning",
+                    reportSelfClsParameterName = "error",
+                    reportImplicitStringConcatenation = "warning",
+                    reportUnusedExpression = "warning",
+                    reportUnnecessaryTypeIgnoreComment = "warning",
+                    reportMatchNotExhaustive = "error",
+                    reportShadowedImports = "error",
+                },
+            },
+        },
+    },
+})
 
 -- Completion setup
 cmp.setup({
@@ -78,9 +122,9 @@ cmp.setup({
             end
         end, { "i", "s" }),
         ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Enter to complete
-        ["<Up>"] = cmp.mapping.abort(),               -- No up and down selection
+        ["<Up>"] = cmp.mapping.abort(), -- No up and down selection
         ["<Down>"] = cmp.mapping.abort(),
-        ["<C-l>"] = cmp.mapping(function(fallback)    -- Move choice forward
+        ["<C-l>"] = cmp.mapping(function(fallback) -- Move choice forward
             if ls.choice_active() then
                 ls.change_choice()
             else
@@ -101,9 +145,7 @@ cmp.setup({
     },
     -- Expands snippets
     snippet = {
-        expand = function(args)
-            ls.lsp_expand(args.body)
-        end,
+        expand = function(args) ls.lsp_expand(args.body) end,
     },
 })
 
