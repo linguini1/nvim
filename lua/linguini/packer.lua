@@ -49,6 +49,7 @@ return packer.startup(function(use)
     use({ "jose-elias-alvarez/null-ls.nvim" })
     use("nvim-lualine/lualine.nvim")
     use({ "startup-nvim/startup.nvim" })
+    use({ "chrishrb/gx.nvim" })
 
     -- Markdown previewing in browser
     use({

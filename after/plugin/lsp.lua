@@ -76,7 +76,6 @@ lspconfig.pyright.setup({
                     reportUnknownMemberType = "warning",
                     reportMissingParameterType = "error",
                     reportMissingTypeArgument = "warning",
-                    reportMissingTypeArgument = "warning",
                     reportUnnecessaryIsInstance = "warning",
                     reportUnnecessaryCast = "warning",
                     reportUnnecessaryComparison = "warning",

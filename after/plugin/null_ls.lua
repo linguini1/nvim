@@ -13,7 +13,6 @@ local sources = {
         filetypes = { "c", "c++" },
         extra_args = { "-style={IndentWidth: 4, ColumnLimit: 120, AllowShortIfStatementsOnASingleLine: true}" },
     }),
-    formatting.rustfmt,
     diagnostics.flake8.with({ extra_args = { "--max-line-length", "120", "--ignore=E203" } }),
     diagnostics.eslint,
     code_actions.gitsigns,
