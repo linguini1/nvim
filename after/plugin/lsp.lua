@@ -92,6 +92,15 @@ lspconfig.pyright.setup({
         },
     },
 })
+lspconfig.rust_analyzer.setup({
+    settings = {
+        ["rust-analyzer"] = {
+            check = {
+                command = "clippy",
+            },
+        },
+    },
+})
 
 -- Completion setup
 cmp.setup({
