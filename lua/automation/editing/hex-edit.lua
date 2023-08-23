@@ -1,3 +1,5 @@
+--- Toggles hexedit mode and switches filetype to binary to avoid the automatic addition of an EOF character
+--- @return nil
 local function hex_toggle()
     -- Revert hex if already in hex-edit mode
     if vim.bo.filetype == "xxd" then

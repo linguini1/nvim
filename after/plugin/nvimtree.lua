@@ -3,9 +3,8 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
-require("nvim-tree").setup({
-    hijack_cursor = true, -- Cursor on first letter of file name during navigation
-})
+-- Cursor on first letter of file name during navigation
+require("nvim-tree").setup({ hijack_cursor = true })
 
 -- Tree commands
 vim.keymap.set("n", "<leader>tt", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree." })

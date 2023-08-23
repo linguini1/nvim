@@ -2,6 +2,14 @@ local test_name_pattern = "[a-zA-Z|\\d|_]* "
 local passing_virt_text = { "", "DiagnosticOk" }
 local failing_virt_text = "󱈸"
 
+--- @class PytestTest
+--- @field passed boolean True if the test passed, false otherwise
+--- @field test_name string The name of the test
+
+--- Populates the tests table with the pass/fail data gained from Pytest
+--- @param data table Table containing the lines parsed from Pytest output
+--- @param tests table Table to be populated with test objects
+--- @return nil
 local function parse_data(data, tests)
     for _, value in ipairs(data) do
         local test_name = string.match(value, test_name_pattern)
@@ -22,6 +30,12 @@ local function parse_data(data, tests)
     end
 end
 
+--- Adds diagnostics to the buffer virtual text
+--- @param test PytestTest The test to add diagnostics for
+--- @param lnr number The line number to add the diagnostics to
+--- @param bufnr number The buffer to add diagnostics to
+--- @param failed_list table The table which will be populated with the failing test case data required for diagnostics
+--- @return nil
 local function add_diagnostic(test, lnr, bufnr, ns, failed_list)
     -- Test passed
     if test.passed then
@@ -41,39 +55,36 @@ local function add_diagnostic(test, lnr, bufnr, ns, failed_list)
     })
 end
 
-vim.api.nvim_create_user_command("RunPytest",
-    function(opts)
-        local test_file = vim.api.nvim_buf_get_name(0) -- Get filename of current buffer
-        local bufnr = vim.api.nvim_get_current_buf()   -- Get current buffer
+--- @param opts UserCommandOptions
+--- @return nil
+vim.api.nvim_create_user_command("RunPytest", function(opts)
+    local test_file = vim.api.nvim_buf_get_name(0) -- Get filename of current buffer
+    local bufnr = vim.api.nvim_get_current_buf() -- Get current buffer
 
-        -- Clear namespace in case tests were run previously
-        local ns = vim.api.nvim_create_namespace("test-run")
-        vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
-        local tests = {} -- Store test data
-        vim.fn.jobstart({ "pytest", test_file, "--verbose", "--no-header", "--no-summary" },
-            {
-                stdout_buffered = true,
-                on_stdout = function(_, data)
-                    if not data then return end
-                    parse_data(data, tests)
-                end,
-                on_exit = function(_, _, _)
-                    local failed = {}
-                    for _, test in ipairs(tests) do
-                        -- Find line number where test is written
-                        local line_number = -1
-                        vim.api.nvim_buf_call(bufnr, function()
-                            line_number = vim.fn.search(test.test_name) - 1
-                        end)
-                        add_diagnostic(test, line_number, bufnr, ns, failed)                                 -- Record failed tests for diagnostic
-                    end
-                    vim.diagnostic.set(ns, bufnr, failed, { virtual_text = { prefix = failing_virt_text } }) -- Display diagnostic
-                end
-            }
-        )
-    end,
-    {
-        desc = "Runs the current file's Pytest tests and updates the diagnostics with the results.",
-        nargs = 0
-    }
-)
+    -- Clear name space in case tests were run previously
+    local ns = vim.api.nvim_create_namespace("test-run")
+    vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
+
+    local tests = {}
+    vim.fn.jobstart({ "pytest", test_file, "--verbose", "--no-header", "--no-summary" }, {
+        stdout_buffered = true,
+        --- @param data table
+        on_stdout = function(_, data)
+            if not data then return end
+            parse_data(data, tests)
+        end,
+        on_exit = function(_, _, _)
+            local failed = {}
+            for _, test in ipairs(tests) do
+                -- Find line number where test is written
+                local line_number = -1
+                vim.api.nvim_buf_call(bufnr, function() line_number = vim.fn.search(test.test_name) - 1 end)
+                add_diagnostic(test, line_number, bufnr, ns, failed) -- Record failed tests for diagnostic
+            end
+            vim.diagnostic.set(ns, bufnr, failed, { virtual_text = { prefix = failing_virt_text } }) -- Display diagnostic
+        end,
+    })
+end, {
+    desc = "Runs the current file's Pytest tests and updates the diagnostics with the results.",
+    nargs = 0,
+})
