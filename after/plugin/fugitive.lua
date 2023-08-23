@@ -7,9 +7,13 @@ vim.keymap.set("n", "<leader>gr", ":Git restore --staged", { desc = "Set up git 
 vim.keymap.set("n", "<leader>gra", ":Git restore .<CR>", { desc = "Restore all files." })
 
 -- Committing
-vim.keymap.set("n", "<leader>gc", ":Git commit -m \"\"<left>", { desc = "Set up git commit." })
-vim.keymap.set("n", "<leader>gca", ":Git commit -a -m \"\"<left>",
-    { desc = "Sets up a git commit which automatically adds modified files." })
+vim.keymap.set("n", "<leader>gc", ':Git commit -m ""<left>', { desc = "Set up git commit." })
+vim.keymap.set(
+	"n",
+	"<leader>gca",
+	':Git commit -a -m ""<left>',
+	{ desc = "Sets up a git commit which automatically adds modified files." }
+)
 vim.keymap.set("n", "<leader>gs", ":Git status<CR>", { desc = "Check git status." })
 vim.keymap.set("n", "<leader>gl", ":Git log<CR>", { desc = "Check git log." })
 
