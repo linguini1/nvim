@@ -1,14 +1,4 @@
 -- Treesitter automatic Python format strings
-
---- @class AutoCmdCallbackOpts
---- @field id number The autocommand ID
---- @field event string The name of the triggered event
---- @field group number | nil The autocommand group ID, if any
---- @field match string Expanded value of <amatch>
---- @field buf number Buffer number where the command is called
---- @field file string The expanded value of <afile>
---- @field data any Arbitrary data passed from nvim_exec_autocmds()
-
 vim.api.nvim_create_augroup("py-fstring", { clear = true })
 vim.api.nvim_create_autocmd("InsertCharPre", {
     pattern = { "*.py" },

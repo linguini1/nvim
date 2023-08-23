@@ -6,19 +6,6 @@ local M = {}
 --- @field reminder table Interval between breaks in minutes
 --- @field title string The title of the pop-up window that appears during a break
 
---- @class UserCommandOptions
---- @field name string Command name
---- @field args string The args passed to the command, if any
---- @field fargs table The args split by unescpated whitespace (when more than one argument is allowed) if any
---- @field bang boolean True if the command was executed with a ! modifier
---- @field line1 number The starting line of the command range
---- @field line2 number the final line of the command range
---- @field range number The number of items in the command range: 0, 1 or 2
---- @field count number Any count supplied
---- @field reg string The optional register, if specified
---- @field mods string Command modifiers, if any
---- @field smods table Command modifiers in a structure format.
-
 local default_options = {
     interval = 45, -- Minutes
     reminder = { "Get your eyes off the screen!", "Be right back!" },
@@ -78,7 +65,7 @@ function M.setup(options)
         end
     end
 
-    --- @param opts UserCommandOptions
+    --- @param opts UserCmdCallbackOpts
     --- @return nil
     vim.api.nvim_create_user_command("BreakEvery", function(opts)
         options.interval = tonumber(opts.args) * 60000

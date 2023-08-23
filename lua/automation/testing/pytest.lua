@@ -7,8 +7,8 @@ local failing_virt_text = "󱈸"
 --- @field test_name string The name of the test
 
 --- Populates the tests table with the pass/fail data gained from Pytest
---- @param data table Table containing the lines parsed from Pytest output
---- @param tests table Table to be populated with test objects
+--- @param data string[] Table containing the lines parsed from Pytest output
+--- @param tests PytestTest[] Table to be populated with test objects
 --- @return nil
 local function parse_data(data, tests)
     for _, value in ipairs(data) do
@@ -55,7 +55,7 @@ local function add_diagnostic(test, lnr, bufnr, ns, failed_list)
     })
 end
 
---- @param opts UserCommandOptions
+--- @param opts UserCmdCallbackOpts
 --- @return nil
 vim.api.nvim_create_user_command("RunPytest", function(opts)
     local test_file = vim.api.nvim_buf_get_name(0) -- Get filename of current buffer
@@ -65,6 +65,7 @@ vim.api.nvim_create_user_command("RunPytest", function(opts)
     local ns = vim.api.nvim_create_namespace("test-run")
     vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
 
+    --- @type PytestTest[]
     local tests = {}
     vim.fn.jobstart({ "pytest", test_file, "--verbose", "--no-header", "--no-summary" }, {
         stdout_buffered = true,
