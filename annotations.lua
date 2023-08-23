@@ -1,0 +1,23 @@
+--- NVIM API annotations for reuse
+
+--- @class UserCmdCallbackOpts
+--- @field name string Command name
+--- @field args string The args passed to the command, if any
+--- @field fargs table The args split by unescpated whitespace (when more than one argument is allowed) if any
+--- @field bang boolean True if the command was executed with a ! modifier
+--- @field line1 number The starting line of the command range
+--- @field line2 number the final line of the command range
+--- @field range number The number of items in the command range: 0, 1 or 2
+--- @field count number Any count supplied
+--- @field reg string The optional register, if specified
+--- @field mods string Command modifiers, if any
+--- @field smods table Command modifiers in a structure format.
+
+--- @class AutoCmdCallbackOpts
+--- @field id number The autocommand ID
+--- @field event string The name of the triggered event
+--- @field group number | nil The autocommand group ID, if any
+--- @field match string Expanded value of <amatch>
+--- @field buf number Buffer number where the command is called
+--- @field file string The expanded value of <afile>
+--- @field data any Arbitrary data passed from nvim_exec_autocmds()
