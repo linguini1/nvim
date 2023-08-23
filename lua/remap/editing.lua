@@ -1,9 +1,9 @@
 -- Saving
 vim.keymap.set(
-	"i",
-	"<C-s>",
-	"<Esc><Cmd>update<CR>gi",
-	{ desc = "Save the current buffer and return the cursor to its place." }
+    "i",
+    "<C-s>",
+    "<Esc><Cmd>update<CR>gi",
+    { desc = "Save the current buffer and return the cursor to its place." }
 )
 vim.keymap.set("n", "<leader>up", "<Cmd>update<CR>", { desc = "update current buffer." })
 
@@ -17,8 +17,8 @@ vim.keymap.set("i", "<C-b>", "<Esc><right>dwgi", { desc = "Delete word in front 
 -- Formatting
 vim.keymap.set("n", "gq", "<Cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "Format the current buffer." })
 vim.keymap.set(
-	"x",
-	"<leader>c",
-	"<Cmd>s/\\<./\\u&/g<CR><Cmd>nohl<CR>",
-	{ desc = "Capitalize the beginning of each selected word." }
+    "v",
+    "<leader>c",
+    "<Esc><Cmd>s/\\%V\\<./\\u&/g<CR><Cmd>nohl<CR>gv",
+    { desc = "Capitalize the beginning of each selected word." }
 )

@@ -13,7 +13,7 @@ lsnip.setup({
 	enable_autosnippets = true,
 })
 
-lsp_zero.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(_, bufnr)
 	lsp_zero.default_keymaps({ buffer = bufnr })
 	vim.keymap.set(
 		"n",
@@ -38,13 +38,58 @@ lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim" },
+				globals = { "vim", "s", "t", "i", "d", "c", "sn" },
+			},
+			format = {
+				enable = false,
 			},
 		},
 	},
 })
 lspconfig.clangd.setup({
 	arguments = { "-Wall" },
+})
+lspconfig.pyright.setup({
+	settings = {
+		python = {
+			analysis = {
+				diagnosticSeverityOverrides = {
+					reportPropertyTypeMismatch = true,
+					reportImportCycles = "warning",
+					reportUnusedFunction = "warning",
+					reportDuplicateImport = "warning",
+					reportPrivateUsage = "warning",
+					reportTypeCommentUsage = "warning",
+					reportConstantRedefinition = "error",
+					reportDeprecated = "warning",
+					reportIncompatibleMethodOverride = "error",
+					reportIncompatibleVariableOverride = "error",
+					reportInconsistentConstructor = "error",
+					reportOverlappingOverload = "error",
+					reportMissingSuperCall = "error",
+					reportUnititializedInstanceVariable = "error",
+					reportUnknownParameterType = "warning",
+					reportUnknownArgumentType = "warning",
+					reportUnknownLambdaType = "warning",
+					reportUnknownVariableType = "warning",
+					reportUnknownMemberType = "warning",
+					reportMissingParameterType = "error",
+					reportMissingTypeArgument = "warning",
+					reportUnnecessaryIsInstance = "warning",
+					reportUnnecessaryCast = "warning",
+					reportUnnecessaryComparison = "warning",
+					reportUnnecessaryContains = "warning",
+					reportAssertAlwaysTrue = "warning",
+					reportSelfClsParameterName = "error",
+					reportImplicitStringConcatenation = "warning",
+					reportUnusedExpression = "warning",
+					reportUnnecessaryTypeIgnoreComment = "warning",
+					reportMatchNotExhaustive = "error",
+					reportShadowedImports = "error",
+				},
+			},
+		},
+	},
 })
 
 -- Completion setup
