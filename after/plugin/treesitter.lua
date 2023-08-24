@@ -14,6 +14,7 @@ require("nvim-treesitter.configs").setup({
         "html",
         "json",
         "markdown",
+        "markdown_inline",
         "comment",
     },
     sync_install = false,
@@ -49,6 +50,6 @@ vim.api.nvim_create_autocmd("InsertCharPre", {
         if first_char == "f" then return end
 
         -- Otherwise, make the string a format string
-        vim.api.nvim_input("<Esc>m'" .. row + 1 .. "gg" .. col + 1 .."|if<Esc>`'la")
+        vim.api.nvim_input("<Esc>m'" .. row + 1 .. "gg" .. col + 1 .. "|if<Esc>`'la")
     end,
 })
