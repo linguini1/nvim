@@ -50,6 +50,7 @@ return packer.startup(function(use)
     use("nvim-lualine/lualine.nvim")
     use({ "startup-nvim/startup.nvim" })
     use({ "chrishrb/gx.nvim" })
+    use({ "linguini1/pulse.nvim" })
 
     -- Markdown previewing in browser
     use({
