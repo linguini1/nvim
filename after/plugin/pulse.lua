@@ -1,5 +1,6 @@
 local pulse = require("pulse")
-pulse.setup({
-    { name = "screen", interval = 45, "Rest your eyes!" },
-    { name = "drink", interval = 20, "Drink water!" },
-})
+pulse.setup({ level = vim.log.levels.INFO })
+
+-- Timers
+pulse.add("eyes", 45, "Rest your eyes!")
+pulse.add("drink", 20, "Drink some water!")
