@@ -1,9 +1,45 @@
 -- Lsp-zero
-local lsp_zero = require("lsp-zero").preset("recommended")
+local lspconfig = require("lspconfig")
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local lspconfig = require("lspconfig")
 local lsnip = require("luasnip")
+
+-- LSP attach
+local function on_attach()
+    vim.keymap.set(
+        "n",
+        "gr",
+        "<Cmd>Telescope lsp_references<CR>",
+        { buffer = 0, desc = "Show references in a Telescope window." }
+    )
+end
+
+-- Mason
+mason.setup()
+mason_lspconfig.setup({
+    ensure_installed = {
+        "eslint",
+        "pyright",
+        "emmet_ls",
+        "cssls",
+        "lua_ls",
+        "cmake",
+        "clangd",
+        "rust_analyzer",
+    },
+})
+
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+mason_lspconfig.setup_handlers({
+    function(server_name)
+        lspconfig[server_name].setup({
+            capabilities = lsp_capabilities,
+            on_attach = on_attach,
+        })
+    end,
+})
 
 -- Luasnip
 require("luasnip.loaders.from_lua").load()
@@ -13,27 +49,7 @@ lsnip.setup({
     enable_autosnippets = true,
 })
 
-lsp_zero.on_attach(function(_, bufnr)
-    lsp_zero.default_keymaps({ buffer = bufnr })
-    vim.keymap.set(
-        "n",
-        "gr",
-        "<Cmd>Telescope lsp_references<CR>",
-        { buffer = true, desc = "Show references in a Telescope window." }
-    )
-end)
-
 -- Language servers
-lsp_zero.ensure_installed({
-    "eslint",
-    "pyright",
-    "emmet_ls",
-    "cssls",
-    "lua_ls",
-    "cmake",
-    "clangd",
-    "rust_analyzer",
-})
 lspconfig.lua_ls.setup({
     settings = {
         Lua = {
@@ -162,5 +178,3 @@ cmp.setup({
 
 -- Autoclose parenthesis on function completion
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
-lsp_zero.setup()
