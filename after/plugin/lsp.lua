@@ -137,6 +137,9 @@ lspconfig.rust_analyzer.setup({
             check = {
                 command = "clippy",
             },
+            rustfmt = {
+                extraArgs = { "--config", "max_width=120" },
+            },
         },
     },
 })
