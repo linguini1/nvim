@@ -6,7 +6,8 @@ local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local lsnip = require("luasnip")
 
--- LSP attach
+-- LSP attach and capabilities
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local function on_attach()
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0, desc = "Show documentation in hover window." })
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0, desc = "Jump to definition." })
@@ -14,7 +15,13 @@ local function on_attach()
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0, desc = "Jump to implementation." })
     vim.keymap.set("n", "go", vim.lsp.buf.type_definition, { buffer = 0, desc = "Jump to type definition." })
     vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { buffer = 0, desc = "Jump to signature help." })
-    vim.keymap.set("n", "gq", vim.lsp.buf.format, { buffer = 0, desc = "Jump to signature help." })
+    vim.keymap.set(
+        "n",
+        "gq",
+        function() vim.lsp.buf.format({ async = true }) end,
+        { buffer = 0, desc = "Jump to signature help." }
+    )
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0, desc = "Rename symbol under cursor." })
     vim.keymap.set(
         "n",
         "gr",
@@ -29,9 +36,9 @@ local function on_attach()
 
     -- Code actions
     if vim.lsp.buf.range_code_action then
-        vim.keymap.set("x", "<F4>", vim.lsp.buf.range_code_action, { buffer = 0, desc = "Range code action." })
+        vim.keymap.set("x", "<leader>la", vim.lsp.buf.range_code_action, { buffer = 0, desc = "Range code action." })
     else
-        vim.keymap.set("x", "<F4>", vim.lsp.buf.code_action, { buffer = 0, desc = "Code action." })
+        vim.keymap.set("x", "<leader>la", vim.lsp.buf.code_action, { buffer = 0, desc = "Code action." })
     end
 end
 
@@ -50,16 +57,6 @@ mason_lspconfig.setup({
     },
 })
 
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-mason_lspconfig.setup_handlers({
-    function(server_name)
-        lspconfig[server_name].setup({
-            capabilities = lsp_capabilities,
-            on_attach = on_attach,
-        })
-    end,
-})
-
 -- Luasnip
 require("luasnip.loaders.from_lua").load()
 lsnip.setup({
@@ -70,6 +67,8 @@ lsnip.setup({
 
 -- Language servers
 lspconfig.lua_ls.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
     settings = {
         Lua = {
             diagnostics = {
@@ -82,9 +81,13 @@ lspconfig.lua_ls.setup({
     },
 })
 lspconfig.clangd.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
     arguments = { "-Wall" },
 })
 lspconfig.pyright.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
     settings = {
         python = {
             analysis = {
@@ -127,6 +130,8 @@ lspconfig.pyright.setup({
     },
 })
 lspconfig.rust_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
     settings = {
         ["rust-analyzer"] = {
             check = {
@@ -195,5 +200,12 @@ cmp.setup({
     },
 })
 
--- Autoclose parenthesis on function completion
+-- Automatically close parenthesis on function completion
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+-- Styling
+vim.cmd("set winhighlight=" .. cmp.config.window.bordered().winhighlight) -- Hover window looks nice
+vim.diagnostic.config({ float = { border = "rounded" } })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+})
