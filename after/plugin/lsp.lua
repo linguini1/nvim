@@ -153,7 +153,7 @@ cmp.setup({
         { name = "path" },
     },
     mapping = {
-        --- @param fallback function
+        -- Tab autocomplete
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -162,8 +162,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s" }), -- Tab autocomplete
-        --- @param fallback function
+        end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -173,10 +172,22 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s" }),
+        ["<C-p>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ["<C-n>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
         ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Enter to complete
-        ["<Up>"] = cmp.mapping.abort(), -- No up and down selection
-        ["<Down>"] = cmp.mapping.abort(),
-        --- @param fallback function
+        ["<C-y>"] = cmp.mapping.confirm({ select = false }), -- Ctrl + Y to complete too
         ["<C-l>"] = cmp.mapping(function(fallback) -- Move choice forward
             if lsnip.choice_active() then
                 lsnip.change_choice()
@@ -184,7 +195,6 @@ cmp.setup({
                 fallback()
             end
         end),
-        --- @param fallback function
         ["<C-h>"] = cmp.mapping(function(fallback) -- Move choice backward
             if lsnip.choice_active() then
                 lsnip.change_choice(-1)
