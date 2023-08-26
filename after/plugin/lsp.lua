@@ -218,7 +218,13 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- Styling
 vim.opt.winhighlight = cmp.config.window.bordered().winhighlight -- Hover window looks nice
-vim.diagnostic.config({ float = { border = "rounded" } })
+vim.diagnostic.config({
+    float = { border = "rounded" },
+    virtual_text = true,
+    signs = true,
+    update_in_insert = true,
+    underline = true,
+})
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
 })

@@ -28,11 +28,3 @@ vim.opt.titlestring = '%{expand("%:p")}'
 vim.opt.spell = true
 vim.opt.spelllang = "en_ca"
 vim.opt.spellsuggest = "5"
-
--- Diagnostics
-vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
-    update_in_insert = true,
-    underline = true,
-})
