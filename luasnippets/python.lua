@@ -35,7 +35,7 @@ return {
 
             return sn(nil, {
                 t({ arguments }),
-                i(1, "params"),
+                i(1, ""),
                 t({ ") -> " }),
             })
         end),
