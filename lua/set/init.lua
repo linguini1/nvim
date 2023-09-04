@@ -1,5 +1,3 @@
-vim.g.mapleader = " " -- Leader key
-
 vim.opt.nu = true -- Line numbers
 vim.opt.rnu = true -- Relative line numbers
 vim.opt.tabstop = 4 -- 4 space indents
