@@ -31,8 +31,6 @@ return {
     -- Misc
     { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
     { "jose-elias-alvarez/null-ls.nvim" },
-    { "nvim-lualine/lualine.nvim" },
-    { "startup-nvim/startup.nvim" },
     {
         "chrishrb/gx.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -43,9 +41,10 @@ return {
     -- Markdown previewing in browser
     {
         "iamcco/markdown-preview.nvim",
+        build = function() vim.fn["mkdp#util#install"]() end,
         config = function()
             vim.g.mkdp_filetypes = { "markdown" }
-            vim.fn["mkdp#util#install"]()
+            vim.g.mkdp_refresh_slow = 1
         end,
         ft = { "markdown" },
     },
