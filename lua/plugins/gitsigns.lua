@@ -1,5 +1,6 @@
 return {
     "lewis6991/gitsigns.nvim",
+    event = { "BufEnter" },
     config = function()
         local gs = require("gitsigns")
         gs.setup()
