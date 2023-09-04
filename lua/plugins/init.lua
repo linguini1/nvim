@@ -16,13 +16,13 @@ return {
     { "williamboman/mason-lspconfig.nvim" },
 
     -- Autocompletion
-    { "saadparwaiz1/cmp_luasnip", event = "InsertEnter" }, -- Shows lua snippets in completion menu
-    { "hrsh7th/cmp-path", event = "InsertEnter" }, -- Shows paths in completion menu
-    { "hrsh7th/cmp-nvim-lua", event = "InsertEnter" }, -- Shows nvim api in completion menu
-    { "hrsh7th/nvim-cmp", event = "InsertEnter" }, -- Completion
-    { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" }, -- Completion + LSP integration
-    { "L3MON4D3/LuaSnip", event = "InsertEnter" }, -- Snippets
-    { "windwp/nvim-autopairs", event = "InsertEnter" }, -- Automatic pairs
+    { "saadparwaiz1/cmp_luasnip" }, -- Shows lua snippets in completion menu
+    { "hrsh7th/cmp-path" }, -- Shows paths in completion menu
+    { "hrsh7th/cmp-nvim-lua" }, -- Shows nvim api in completion menu
+    { "hrsh7th/nvim-cmp" }, -- Completion
+    { "hrsh7th/cmp-nvim-lsp" }, -- Completion + LSP integration
+    { "L3MON4D3/LuaSnip" }, -- Snippets
+    { "windwp/nvim-autopairs" }, -- Automatic pairs
 
     -- Misc
     { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
