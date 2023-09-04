@@ -36,7 +36,6 @@ return {
         keys = { "gx" },
         config = function() require("gx").setup({ handler_options = { search_engine = "google" } }) end,
     },
-    { "linguini1/pulse.nvim" },
 
     -- Markdown previewing in browser
     {
