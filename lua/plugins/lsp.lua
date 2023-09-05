@@ -15,6 +15,16 @@ return {
             "L3MON4D3/LuaSnip", -- Snippets
             "windwp/nvim-autopairs", -- Automatic pairs
         },
-        config = function() require("nvim-autopairs").setup() end,
+        config = function()
+            local npairs = require("nvim-autopairs")
+            local Rule = require("nvim-autopairs.rule")
+            local cond = require("nvim-autopairs.conds")
+            npairs.setup()
+            npairs.add_rules({
+                Rule("{:", ":}", "norg")
+                    :with_pair(cond.after_text("}"))
+                    :replace_endpair(function() return ":" end),
+            })
+        end,
     },
 }

@@ -150,6 +150,7 @@ cmp.setup({
         { name = "luasnip", option = { show_autosnippets = true } },
         { name = "nvim_lua" },
         { name = "nvim_lsp" },
+        { name = "neorg" },
         { name = "path" },
     },
     mapping = {
