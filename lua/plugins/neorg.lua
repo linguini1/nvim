@@ -1,7 +1,10 @@
 return {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp", "nvim-treesitter/nvim-treesitter" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    ft = "norg",
+    cmd = "Neorg",
+    priority = 30, -- Load after treesitter, with a priority of 50
     config = function()
         require("neorg").setup({
             load = {
@@ -15,6 +18,7 @@ return {
                             personal = "~/notes/personal",
                             projects = "~/notes/projects",
                         },
+                        default_workspace = "personal",
                     },
                 },
             },
