@@ -27,5 +27,7 @@ vim.opt.spell = true
 vim.opt.spelllang = "en_ca"
 vim.opt.spellsuggest = "5"
 
--- Use Powershell as the terminal emulator on Windows by default
-if vim.loop.os_uname().sysname == "Windows_NT" then vim.opt.shell = "powershell.exe" end
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    vim.opt.shell = "powershell.exe" -- Use Powershell as the terminal emulator on Windows by default
+    vim.opt.keywordprg = ":help" -- Never use :Man as the keywordprg on Windows
+end
