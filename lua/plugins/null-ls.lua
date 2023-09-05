@@ -12,7 +12,7 @@ return {
             formatting.prettierd.with({
                 filetypes = { "html", "css", "json", "markdown", "javascriptreact", "javascript" },
             }),
-            formatting.stylua.with({ extra_args = { "--indent-type=Spaces", "--collapse-simple-statement=Always" } }),
+            formatting.stylua.with({ extra_args = { "--indent-type=Spaces" } }),
             formatting.clang_format.with({
                 filetypes = { "c", "c++" },
                 extra_args = { "-style={IndentWidth: 4, ColumnLimit: 120, AllowShortIfStatementsOnASingleLine: true}" },
