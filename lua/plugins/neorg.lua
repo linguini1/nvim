@@ -14,12 +14,11 @@ return {
                 ["core.dirman"] = {
                     config = {
                         workspaces = {
-                            notes = "~/notes",
+                            junk = "~/notes/junk",
                             school = "~/notes/school",
-                            personal = "~/notes/personal",
                             projects = "~/notes/projects",
                         },
-                        default_workspace = "notes",
+                        default_workspace = "junk",
                     },
                 },
             },
