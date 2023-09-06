@@ -15,7 +15,7 @@ return {
                     config = {
                         workspaces = {
                             junk = "~/notes/junk",
-                            school = "~/notes/school",
+                            school = "~/notes/schnotesool",
                             projects = "~/notes/projects",
                         },
                         default_workspace = "junk",
