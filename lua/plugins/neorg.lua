@@ -26,6 +26,7 @@ return {
                             junk = "~/notes/junk",
                             school = "~/notes/school",
                             projects = "~/notes/projects",
+                            cuinspace = "~/notes/cuinspace",
                         },
                         default_workspace = "junk",
                     },
