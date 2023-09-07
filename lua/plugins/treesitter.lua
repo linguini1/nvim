@@ -21,6 +21,7 @@ return {
                     "markdown",
                     "markdown_inline",
                     "comment",
+                    "latex",
                 },
                 sync_install = false,
                 auto_install = true,
