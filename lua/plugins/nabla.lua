@@ -1,5 +1,6 @@
 return {
     "jbyuki/nabla.nvim",
-    build = ":TSInstall latex",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    build = function() vim.cmd("TSInstall latex") end,
     lazy = true,
 }
