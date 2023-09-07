@@ -1,7 +1,7 @@
 return {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim", "folke/zen-mode.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "folke/zen-mode.nvim", "jbyuki/nabla.nvim" },
     ft = "norg",
     cmd = "Neorg",
     priority = 30, -- Load after treesitter, with a priority of 50
@@ -36,6 +36,7 @@ return {
                         hook = function(keybinds)
                             keybinds.remap_event("norg", "n", "<LocalLeader>z", "core.looking-glass.magnify-code-block")
                             keybinds.map("norg", "n", "<LocalLeader>p", "<Cmd>Neorg presenter start<CR>")
+                            keybinds.map("norg", "n", "<LocalLeader>l", require("nabla").popup)
                         end,
                     },
                 },
