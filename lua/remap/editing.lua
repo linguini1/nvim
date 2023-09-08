@@ -15,7 +15,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line(s) upward with 
 vim.keymap.set("i", "<C-b>", "<Esc><right>dwgi", { desc = "Delete word in front of cursor." })
 
 -- Formatting
-vim.keymap.set("n", "gq", "<Cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "Format the current buffer." })
 vim.keymap.set(
     "v",
     "<leader>c",
