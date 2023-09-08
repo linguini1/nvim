@@ -18,7 +18,7 @@ return {
 
         -- Set GitHub entry boxes to be markdown
         vim.api.nvim_create_autocmd({ "BufEnter" }, {
-            pattern = "github.com_*.txt",
+            pattern = { "github.com_*.txt", "neovim.discourse.*.txt" },
             command = "set filetype=markdown",
         })
     end,
