@@ -1,7 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
+        build = ":silent TSUpdate",
         config = function()
             require("nvim-treesitter.install").compilers = { "gcc" }
             require("nvim-treesitter.configs").setup({
