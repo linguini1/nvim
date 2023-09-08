@@ -1,3 +1,4 @@
+local NVIM_VERS = "NVIM v%d+%.%d+%.%d+"
 local settings = {
     header = {
         type = "text",
@@ -27,7 +28,7 @@ local settings = {
         type = "text",
         content = function()
             local lazy_stats = require("lazy").stats()
-            local nvim_vers = string.match(vim.api.nvim_cmd({ cmd = "version" }, { output = true }), "NVIM v%d%.%d%.%d")
+            local nvim_vers = string.match(vim.api.nvim_cmd({ cmd = "version" }, { output = true }), NVIM_VERS)
             local os = "OS: " .. vim.loop.os_uname().sysname
             return {
                 nvim_vers,
