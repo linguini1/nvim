@@ -20,6 +20,11 @@ return {
                 ["core.tempus"] = {},
                 ["core.ui.calendar"] = {},
                 ["core.export.markdown"] = {},
+                ["core.journal"] = {
+                    config = {
+                        journal_folder = "journo",
+                    },
+                },
                 ["core.dirman"] = {
                     config = {
                         workspaces = {

@@ -33,6 +33,7 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
     vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
     vim.opt.shellquote = ""
     vim.opt.shellxquote = ""
+    vim.opt.shellslash = true
     vim.opt.shellpipe = "| Out-File -Encoding UTF8 %s"
     vim.opt.shellredir = "| Out-File -Encoding UTF8 %s"
 
