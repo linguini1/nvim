@@ -1,7 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        build = ":silent TSUpdate",
+        build = function() require("nvim-treesitter.install").update({ with_sync = true })() end,
         config = function()
             require("nvim-treesitter.install").compilers = { "gcc" }
             require("nvim-treesitter.configs").setup({
@@ -31,6 +31,7 @@ return {
                     enable = true,
                     additional_vim_regex_highlighting = false,
                 },
+                indent = { enable = true },
             })
 
             -- Custom TO DO highlight
