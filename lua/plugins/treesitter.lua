@@ -6,13 +6,14 @@ return {
             require("nvim-treesitter.install").compilers = { "gcc" }
             require("nvim-treesitter.configs").setup({
                 ensure_installed = {
-                    "c",
                     "lua",
+                    "c",
+                    "cpp",
+                    "make",
+                    "python",
                     "vim",
                     "vimdoc",
                     "query",
-                    "python",
-                    "cpp",
                     "rust",
                     "javascript",
                     "css",
