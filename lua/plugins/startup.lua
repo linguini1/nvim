@@ -17,7 +17,7 @@ return {
         })
 
         -- Add colorcolumn back when startup is exited
-        vim.api.nvim_create_autocmd({ "BufLeave" }, {
+        vim.api.nvim_create_autocmd({ "BufDelete" }, {
             group = cc_group,
             pattern = {},
             callback = function(opts)
