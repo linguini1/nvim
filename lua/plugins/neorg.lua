@@ -47,5 +47,11 @@ return {
                 },
             },
         })
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "norg",
+            callback = function() vim.opt_local.conceallevel = 3 end,
+            desc = "Set conceal level to 3 on Neorg files so that links are properly concealed.",
+        })
     end,
 }
