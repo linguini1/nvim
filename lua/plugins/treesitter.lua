@@ -1,7 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        build = function() require("nvim-treesitter.install").update({ with_sync = true })() end,
+        build = function() vim.cmd("silent! TSUpdate") end,
         config = function()
             require("nvim-treesitter.install").compilers = { "gcc" }
             require("nvim-treesitter.configs").setup({
