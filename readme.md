@@ -10,6 +10,9 @@ In order to have the correct font, install the [JetBrains Mono Nerd Font][nerd-f
 Disable ligatures in the terminal's font settings using `font.features.calt = 0` within the `settings.json` file
 for the Windows terminal. This should be done under the default profiles.
 
+You will also want to go into `Settings > Defaults > Appearance` and set `Text Formatting` to "Bold font with bright
+colours".
+
 For `fire.nvim` to display correctly in the browser, be sure to go into the settings and select the
 [JetBrains Mono Nerd Font][nerd-fonts] as the default mono space font.
 
