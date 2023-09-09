@@ -22,6 +22,7 @@ return {
                     "markdown_inline",
                     "comment",
                     "latex",
+                    "bash",
                 },
                 sync_install = false,
                 auto_install = true,
