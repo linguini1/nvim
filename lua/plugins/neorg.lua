@@ -1,10 +1,16 @@
 return {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim", "folke/zen-mode.nvim", "jbyuki/nabla.nvim" },
     ft = "norg",
     cmd = "Neorg",
-    priority = 30, -- Load after treesitter, with a priority of 50
+    priority = 30,
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-neorg/neorg-telescope",
+        "folke/zen-mode.nvim",
+        "jbyuki/nabla.nvim",
+    },
     config = function()
         require("neorg").setup({
             load = {
@@ -16,6 +22,7 @@ return {
                 ["core.export"] = {},
                 ["core.looking-glass"] = {},
                 ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
+                ["core.integrations.telescope"] = {},
                 ["core.ui"] = {},
                 ["core.tempus"] = {},
                 ["core.ui.calendar"] = {},
@@ -41,7 +48,10 @@ return {
                         hook = function(keybinds)
                             keybinds.remap_event("norg", "n", "<LocalLeader>z", "core.looking-glass.magnify-code-block")
                             keybinds.map("norg", "n", "<LocalLeader>p", "<Cmd>Neorg presenter start<CR>")
-                            keybinds.map("norg", "n", "<LocalLeader>l", require("nabla").popup)
+                            keybinds.map("norg", "n", "<LocalLeader>v", require("nabla").popup)
+                            keybinds.map("norg", "n", "<leader>fnh", "<Cmd>Telescope neorg search_headers<CR>")
+                            keybinds.map("norg", "n", "<leader>fnl", "<Cmd>Telescope neorg find_linkable<CR>")
+                            keybinds.map("norg", "n", "<LocalLeader>il", "<Cmd>Telescope neorg insert_file_link<CR>")
                         end,
                     },
                 },
