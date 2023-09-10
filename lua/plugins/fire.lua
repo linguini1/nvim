@@ -10,7 +10,7 @@ return {
                     cmdline = "neovim",
                     content = "text",
                     priority = 0,
-                    selector = "textarea",
+                    selector = 'textarea:not([readonly], [aria-readonly], [type="search"])',
                     takeover = "always",
                 },
             },
