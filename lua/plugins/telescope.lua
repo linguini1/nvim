@@ -18,6 +18,7 @@ return {
             },
         })
 
+        -- Keymaps
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files using Telescope." })
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Search help menu using Telescope." })
         vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Find git file using Telescope." })
@@ -37,5 +38,18 @@ return {
             { desc = "Find search term using live grep in Telescope." }
         )
         vim.keymap.set("n", "z=", builtin.spell_suggest, { desc = "Show spelling suggestions for word under cursor." })
+
+        -- Hacky workaround to have Neorg highlights in the preview
+        local hl_group = vim.api.nvim_create_augroup("norg-telescope-hl", { clear = true })
+        vim.api.nvim_create_autocmd("User", {
+            group = hl_group,
+            pattern = "TelescopePreviewerLoaded",
+            callback = function(args)
+                if args.data.filetype == "norg" then
+                    vim.bo.filetype = "norg"
+                    vim.api.nvim_del_augroup_by_id(hl_group) -- Clear up once Neorg is loaded properly
+                end
+            end,
+        })
     end,
 }
