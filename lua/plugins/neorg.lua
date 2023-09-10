@@ -18,7 +18,7 @@ return {
                 ["core.qol.toc"] = { config = { close_after_use = true } },
                 ["core.completion"] = { config = { engine = "nvim-cmp" } },
                 ["core.summary"] = {},
-                ["core.concealer"] = {},
+                ["core.concealer"] = { config = { icons = { code_block = { conceal = true, width = 120 } } } },
                 ["core.export"] = {},
                 ["core.looking-glass"] = {},
                 ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
