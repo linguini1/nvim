@@ -23,6 +23,7 @@ return {
                 ["core.looking-glass"] = {},
                 ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
                 ["core.integrations.telescope"] = {},
+                ["core.integrations.treesitter"] = {},
                 ["core.ui"] = {},
                 ["core.tempus"] = {},
                 ["core.ui.calendar"] = {},
