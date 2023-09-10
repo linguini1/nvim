@@ -7,7 +7,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "nvim-neorg/neorg-telescope",
+        { "nvim-neorg/neorg-telescope", dependencies = { "nvim-telescope/telescope.nvim" } },
         "folke/zen-mode.nvim",
         "jbyuki/nabla.nvim",
     },
