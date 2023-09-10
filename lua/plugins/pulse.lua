@@ -1,5 +1,6 @@
 return {
     "linguini1/pulse.nvim",
+    enabled = not vim.g.started_by_firenvim,
     config = function()
         local pulse = require("pulse")
         pulse.setup({ level = vim.log.levels.INFO })

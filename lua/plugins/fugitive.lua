@@ -1,5 +1,23 @@
 return {
     "tpope/vim-fugitive",
+    enabled = not vim.g.started_by_firenvim,
+    cmd = { "Git", "G" },
+    keys = {
+        "<leader>ga",
+        "<leader>gaa",
+        "<leader>gr",
+        "<leader>gra",
+        "<leader>gc",
+        "<leader>gca",
+        "<leader>gs",
+        "<leader>gl",
+        "<leader>gp",
+        "<leader>gf",
+        "<leader>gpu",
+        "<leader>gm",
+        "<leader>gmm",
+        "<leader>gma",
+    },
     config = function()
         -- Adding
         vim.keymap.set("n", "<leader>ga", ":Git add ", { desc = "Set up git add." })

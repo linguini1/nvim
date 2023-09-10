@@ -1,1 +1,1 @@
-return { "folke/zen-mode.nvim", cmd = "ZenMode", opts = {} }
+return { "folke/zen-mode.nvim", enabled = not vim.g.started_by_firenvim, cmd = "ZenMode", opts = {} }

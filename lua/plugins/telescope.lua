@@ -1,5 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
+    enabled = not vim.g.started_by_firenvim,
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = { "<leader>ff", "<leader>fh", "<leader>fg", "<leader>fk", "<leader>fc" },
     config = function()

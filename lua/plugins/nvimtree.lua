@@ -1,6 +1,7 @@
 return {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    enabled = not vim.g.started_by_firenvim,
     config = function()
         -- Disable netrw
         vim.g.loaded_netrw = 1

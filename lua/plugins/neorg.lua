@@ -1,5 +1,6 @@
 return {
     "nvim-neorg/neorg",
+    enabled = not vim.g.started_by_firenvim,
     build = ":Neorg sync-parsers",
     ft = "norg",
     cmd = "Neorg",

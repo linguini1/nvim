@@ -1,5 +1,6 @@
 return {
     "startup-nvim/startup.nvim",
+    enabled = not vim.g.started_by_firenvim,
     config = function()
         local recorded_cc_setting = vim.opt.colorcolumn:get()
         local cc_group = vim.api.nvim_create_augroup("startup-cc", { clear = true })
