@@ -11,7 +11,7 @@ return {
     },
     {
         "echasnovski/mini.comment",
-        keys = { "<C-_>" },
+        keys = { { "<C-_>", mode = "n" }, { "<C-_>", mode = "x" } },
         config = function()
             require("mini.comment").setup({
                 mappings = {
