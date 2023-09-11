@@ -1,3 +1,15 @@
+local DO_NOT_FORMAT = { "norg", "text" }
+
+--- Determines whether null-ls should format the file
+--- @param filetype string The filetype of the current buffer
+--- @return boolean format_it True if null-ls should format the file, false otherwise
+local function should_be_formatted(filetype)
+    for _, ft in ipairs(DO_NOT_FORMAT) do
+        if ft == filetype then return false end
+    end
+    return true
+end
+
 return {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -25,6 +37,7 @@ return {
         null_ls.setup({
             debug = true,
             sources = sources,
+            should_attach = function() return should_be_formatted(vim.bo.filetype) end,
             on_attach = function()
                 vim.keymap.set(
                     "n",
