@@ -20,6 +20,7 @@ return {
             interval = 50,
             message = "Rest your mind.",
             enabled = true,
+            level = vim.log.levels.WARN,
         })
     end,
 }

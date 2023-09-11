@@ -16,6 +16,7 @@ return {
             formatting.clang_format.with({
                 filetypes = { "c", "cpp" },
             }),
+            formatting.yamlfmt,
             diagnostics.flake8.with({ extra_args = { "--max-line-length", "120", "--ignore=E203" } }),
             diagnostics.eslint,
             code_actions.gitsigns,
@@ -24,6 +25,14 @@ return {
         null_ls.setup({
             debug = true,
             sources = sources,
+            on_attach = function()
+                vim.keymap.set(
+                    "n",
+                    "gq",
+                    function() vim.lsp.buf.format({ async = true }) end,
+                    { buffer = 0, desc = "Jump to signature help." }
+                )
+            end,
         })
     end,
 }
