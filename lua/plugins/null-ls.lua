@@ -14,8 +14,7 @@ return {
             }),
             formatting.stylua.with({ extra_args = { "--indent-type=Spaces" } }),
             formatting.clang_format.with({
-                filetypes = { "c", "c++" },
-                extra_args = { "-style={IndentWidth: 4, ColumnLimit: 120, AllowShortIfStatementsOnASingleLine: true}" },
+                filetypes = { "c", "cpp" },
             }),
             diagnostics.flake8.with({ extra_args = { "--max-line-length", "120", "--ignore=E203" } }),
             diagnostics.eslint,
