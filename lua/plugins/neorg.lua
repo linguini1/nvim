@@ -50,7 +50,13 @@ return {
                         hook = function(keybinds)
                             keybinds.remap_event("norg", "n", "<LocalLeader>z", "core.looking-glass.magnify-code-block")
                             keybinds.map("norg", "n", "<LocalLeader>p", "<Cmd>Neorg presenter start<CR>")
-                            keybinds.map("norg", "n", "<LocalLeader>v", require("nabla").popup)
+                            keybinds.map(
+                                "norg",
+                                "n",
+                                "<LocalLeader>v",
+                                function() require("nabla").popup({ border = "rounded" }) end
+                            )
+
                             keybinds.map("norg", "n", "<leader>fnh", "<Cmd>Telescope neorg search_headers<CR>")
                             keybinds.map("norg", "n", "<leader>fnl", "<Cmd>Telescope neorg find_linkable<CR>")
                             keybinds.map("norg", "n", "<LocalLeader>il", "<Cmd>Telescope neorg insert_file_link<CR>")
