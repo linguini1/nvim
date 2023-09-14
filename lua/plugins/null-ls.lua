@@ -22,13 +22,14 @@ return {
         local sources = {
             formatting.black.with({ extra_args = { "--line-length=120" } }),
             formatting.prettierd.with({
-                filetypes = { "html", "css", "json", "markdown", "javascriptreact", "javascript" },
+                filetypes = { "html", "css", "javascriptreact", "javascript" },
+                extra_filetypes = { "json", "yaml", "markdown" },
+                extra_args = { "--print-width", "120" },
             }),
             formatting.stylua.with({ extra_args = { "--indent-type=Spaces" } }),
             formatting.clang_format.with({
                 filetypes = { "c", "cpp" },
             }),
-            formatting.yamlfmt,
             diagnostics.flake8.with({ extra_args = { "--max-line-length", "120", "--ignore=E203" } }),
             diagnostics.eslint,
             code_actions.gitsigns,
@@ -43,7 +44,7 @@ return {
                     "n",
                     "gq",
                     function() vim.lsp.buf.format({ async = true }) end,
-                    { buffer = 0, desc = "Jump to signature help." }
+                    { buffer = 0, desc = "Format buffer." }
                 )
             end,
         })
