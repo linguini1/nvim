@@ -28,7 +28,7 @@ return {
                 ["core.ui"] = {},
                 ["core.tempus"] = {},
                 ["core.ui.calendar"] = {},
-                ["core.export.markdown"] = {},
+                ["core.export.markdown"] = { config = { extensions = "all" } },
                 ["core.journal"] = {
                     config = {
                         journal_folder = "journo",
