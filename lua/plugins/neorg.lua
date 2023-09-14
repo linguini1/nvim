@@ -63,6 +63,8 @@ return {
 
                             keybinds.remap_event("norg", "n", "]l", "core.integrations.treesitter.next.link")
                             keybinds.remap_event("norg", "n", "[l", "core.integrations.treesitter.previous.link")
+                            keybinds.remap_event("norg", "n", "]h", "core.integrations.treesitter.next.heading")
+                            keybinds.remap_event("norg", "n", "[h", "core.integrations.treesitter.previous.heading")
                         end,
                     },
                 },
