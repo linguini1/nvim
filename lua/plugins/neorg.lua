@@ -60,6 +60,9 @@ return {
                             keybinds.map("norg", "n", "<leader>fnh", "<Cmd>Telescope neorg search_headers<CR>")
                             keybinds.map("norg", "n", "<leader>fnl", "<Cmd>Telescope neorg find_linkable<CR>")
                             keybinds.map("norg", "n", "<LocalLeader>il", "<Cmd>Telescope neorg insert_file_link<CR>")
+
+                            keybinds.remap_event("norg", "n", "]l", "core.integrations.treesitter.next.link")
+                            keybinds.remap_event("norg", "n", "[l", "core.integrations.treesitter.previous.link")
                         end,
                     },
                 },
