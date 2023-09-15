@@ -22,5 +22,7 @@ return {
             enabled = true,
             level = vim.log.levels.WARN,
         })
+
+        vim.keymap.set("n", "<leader>ft", "<Cmd>Telescope pulse<CR>")
     end,
 }
