@@ -30,6 +30,13 @@ return {
             formatting.clang_format.with({
                 filetypes = { "c", "cpp" },
             }),
+            formatting.latexindent.with({
+                extra_args = {
+                    "-l",
+                    "-m",
+                    [[-y=modifyLineBreaks:textWrapOptions:columns:120]],
+                },
+            }),
             diagnostics.flake8.with({ extra_args = { "--max-line-length", "120", "--ignore=E203" } }),
             diagnostics.eslint,
             code_actions.gitsigns,
