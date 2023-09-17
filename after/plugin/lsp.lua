@@ -143,6 +143,10 @@ lspconfig.rust_analyzer.setup({
         },
     },
 })
+lspconfig.texlab.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
+})
 
 -- Completion setup
 cmp.setup({
