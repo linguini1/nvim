@@ -45,6 +45,7 @@ be represented in the absolute path as `g*`.
 
 This configuration uses `latexindent`, for which you will need to create a file called `.indentconfig` in the home
 directory specified by [latexindent's docs][latexident] with the following contents:
+
 ```yaml
 paths:
   - path/to/nvim/.lateindent.yaml

@@ -21,7 +21,7 @@ return {
 
         local sources = {
             formatting.black.with({ extra_args = { "--line-length=120" } }),
-            formatting.prettierd.with({
+            formatting.prettier.with({
                 filetypes = { "html", "css", "javascriptreact", "javascript" },
                 extra_filetypes = { "json", "yaml", "markdown" },
                 extra_args = { "--print-width", "120" },
