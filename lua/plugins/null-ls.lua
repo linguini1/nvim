@@ -31,11 +31,7 @@ return {
                 filetypes = { "c", "cpp" },
             }),
             formatting.latexindent.with({
-                extra_args = {
-                    "-l",
-                    "-m",
-                    [[-y=modifyLineBreaks:textWrapOptions:columns:120]],
-                },
+                extra_args = { "-m", "-l" },
             }),
             diagnostics.flake8.with({ extra_args = { "--max-line-length", "120", "--ignore=E203" } }),
             diagnostics.eslint,

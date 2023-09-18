@@ -41,6 +41,15 @@ ensures that clangd knows how to find the header files by querying gcc/g++ and I
 path in my configuration in case I end up using clang on Linux or store gcc elsewhere on Windows. Note that gcc/g++ can
 be represented in the absolute path as `g*`.
 
+## LaTeX Indenting
+
+This configuration uses `latexindent`, for which you will need to create a file called `.indentconfig` in the home
+directory specified by [latexindent's docs][latexident] with the following contents:
+```yaml
+paths:
+  - path/to/nvim/.lateindent.yaml
+```
+
 ## Fire.nvim Shortcuts
 
 I found it easiest to use the following browser keyboard shortcuts for this `fire.nvim` configuration (using Chrome):
@@ -61,3 +70,4 @@ I found it easiest to use the following browser keyboard shortcuts for this `fir
 [mingw]: https://github.com/niXman/mingw-builds-binaries/releases
 [bear]: https://github.com/rizsotto/Bear
 [compiledb]: https://github.com/nickdiego/compiledb
+[latexindent]: https://latexindentpl.readthedocs.io/en/stable/sec-indent-config-and-settings.html#indentconfig-yaml-and-indentconfig-yaml
