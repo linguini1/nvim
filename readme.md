@@ -48,7 +48,7 @@ directory specified by [latexindent's docs][latexident] with the following conte
 
 ```yaml
 paths:
-  - path/to/nvim/.lateindent.yaml
+  - path/to/nvim/.latexindent.yaml
 ```
 
 ## Fire.nvim Shortcuts
