@@ -1,7 +1,7 @@
 return {
     "tpope/vim-fugitive",
     enabled = not vim.g.started_by_firenvim,
-    cmd = { "Git", "G" },
+    cmd = { "Git", "G", "Gvdiffsplit", "Gdiffspli" },
     keys = {
         "<leader>ga",
         "<leader>gaa",
