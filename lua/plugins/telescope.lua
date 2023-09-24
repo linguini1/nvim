@@ -14,9 +14,10 @@ return {
                     "^venv/",
                     "^./.git/",
                     ".idea",
-                    "*.synctex.gz",
-                    "*.fls",
-                    "*.fdb_latexmk",
+                    ".*synctex.gz",
+                    ".*.fls",
+                    ".*.fdb_latexmk",
+                    ".*.aux",
                 },
             },
         })
