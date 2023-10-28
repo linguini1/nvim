@@ -83,7 +83,6 @@ lspconfig.lua_ls.setup({
 lspconfig.clangd.setup({
     on_attach = on_attach,
     capabilities = lsp_capabilities,
-    arguments = { "-Wall" },
 })
 lspconfig.pyright.setup({
     on_attach = on_attach,
