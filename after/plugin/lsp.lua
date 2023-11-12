@@ -98,7 +98,7 @@ lspconfig.pyright.setup({
                     reportTypeCommentUsage = "warning",
                     reportConstantRedefinition = "error",
                     reportDeprecated = "warning",
-                    reportIncompatibleMethodOverride = "error",
+                    reportIncompatibleMethodOverride = "warning",
                     reportIncompatibleVariableOverride = "error",
                     reportInconsistentConstructor = "error",
                     reportOverlappingOverload = "error",
