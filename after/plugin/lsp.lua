@@ -51,7 +51,6 @@ mason_lspconfig.setup({
         "emmet_ls",
         "cssls",
         "lua_ls",
-        "cmake",
         "clangd",
         "rust_analyzer",
     },
