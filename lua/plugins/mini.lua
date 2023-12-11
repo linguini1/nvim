@@ -11,13 +11,13 @@ return {
     },
     {
         "echasnovski/mini.comment",
-        keys = { { "<C-_>", mode = "n" }, { "<C-_>", mode = "x" } },
+        keys = { { "<C-/>", mode = "n" }, { "gc", mode = "x" } },
         config = function()
             require("mini.comment").setup({
                 mappings = {
-                    comment_line = "<C-_>", -- <C-/>
-                    text_object = "<C-_>",
-                    comment = "<C-_>",
+                    comment_line = "<C-/>", -- <C-/>
+                    text_object = "gc",
+                    comment = "gc",
                 },
             })
         end,
