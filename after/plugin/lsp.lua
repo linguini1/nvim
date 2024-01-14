@@ -145,6 +145,10 @@ lspconfig.texlab.setup({
     on_attach = on_attach,
     capabilities = lsp_capabilities,
 })
+lspconfig.hdl_checker.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
+})
 
 -- Completion setup
 cmp.setup({
