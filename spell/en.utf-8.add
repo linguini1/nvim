@@ -159,6 +159,10 @@ executables
 asymptotes
 executables
 microcontroller
+underdamped
+overdamped
+dereferencing
+asymptotes
 testability
 InSpace
 accelerometer
