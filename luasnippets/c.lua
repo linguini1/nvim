@@ -17,8 +17,9 @@ return {
         i(0),
         f(function(args) return { "", "#endif // " .. args[1][1] } end, { 1 }),
     }),
+    s({ trig = "/*", dscr = "Multi-line comment." }, { t("/* "), i(1, "comment"), t(" */") }),
 },
 -- Autosnippets
 {
-    s({ trig = "/*", dscr = "Multi-line comment." }, { t("/* "), i(1, "comment"), t(" */") }),
+    s({ trig = "/**", dscr = "Multi-line javadoc comment." }, { t("/** "), i(1, "comment"), t(" */") }),
 }
