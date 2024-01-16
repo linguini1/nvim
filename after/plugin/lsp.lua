@@ -53,6 +53,7 @@ mason_lspconfig.setup({
         "lua_ls",
         "clangd",
         "rust_analyzer",
+        "texlab",
     },
 })
 
