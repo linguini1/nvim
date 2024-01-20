@@ -3,7 +3,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     enabled = not vim.g.started_by_firenvim,
     config = function()
-        require("oil").setup({ default_file_explorer = true })
+        require("oil").setup({ default_file_explorer = true, view_options = { show_hidden = true } })
         vim.keymap.set("n", "-", "<Cmd>edit .<CR>", { desc = "Open parent directory" })
     end,
 }
