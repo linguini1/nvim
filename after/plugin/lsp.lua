@@ -110,6 +110,22 @@ lspconfig.hdl_checker.setup({
     on_attach = on_attach,
     capabilities = lsp_capabilities,
 })
+lspconfig.html.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
+})
+lspconfig.cssls.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
+})
+lspconfig.eslint.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
+})
+lspconfig.tsserver.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
+})
 
 -- Completion setup
 cmp.setup({
