@@ -5,7 +5,7 @@ vim.keymap.set(
     "<Esc><Cmd>update<CR>gi",
     { desc = "Save the current buffer and return the cursor to its place." }
 )
-vim.keymap.set("n", "<leader>up", "<Cmd>update<CR>", { desc = "update current buffer." })
+vim.keymap.set("n", "<leader>w", "<Cmd>update<CR>", { desc = "Update (write) current buffer." })
 
 -- Move highlighted block up and down + autoindent
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line(s) downward with correct indentation." })
