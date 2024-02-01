@@ -126,6 +126,13 @@ lspconfig.tsserver.setup({
     on_attach = on_attach,
     capabilities = lsp_capabilities,
 })
+lspconfig.jdtls.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
+    java = {
+        home = vim.fn.expand("$JAVA_HOME"),
+    },
+})
 
 -- Completion setup
 cmp.setup({
