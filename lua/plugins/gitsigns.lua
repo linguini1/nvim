@@ -8,5 +8,6 @@ return {
 
         vim.keymap.set("n", "<C-b>", gs.blame_line, { desc = "Git blame on current line." })
         vim.opt.signcolumn = "yes"
+        vim.cmd("highlight SignColumn guibg=NONE") -- Transparent background sign column
     end,
 }
