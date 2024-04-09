@@ -1,7 +1,6 @@
 return {
     "nvim-neorg/neorg",
     enabled = not vim.g.started_by_firenvim,
-    build = ":Neorg sync-parsers",
     ft = "norg",
     cmd = "Neorg",
     priority = 30,
@@ -11,6 +10,7 @@ return {
         { "nvim-neorg/neorg-telescope", dependencies = { "nvim-telescope/telescope.nvim" } },
         "folke/zen-mode.nvim",
         "jbyuki/nabla.nvim",
+        { "vhyrro/luarocks.nvim", priority = 1000, config = true },
     },
     config = function()
         require("neorg").setup({
