@@ -15,6 +15,11 @@ return {
     config = function()
         require("neorg").setup({
             load = {
+                ["core.esupports.metagen"] = {
+                    config = {
+                        author = "Matteo Golin",
+                    },
+                },
                 ["core.defaults"] = {},
                 ["core.qol.toc"] = { config = { close_after_use = true } },
                 ["core.completion"] = { config = { engine = "nvim-cmp" } },
