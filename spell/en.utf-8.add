@@ -191,3 +191,6 @@ microcontrollers
 additively
 Convolving
 Correlator
+Maskable
+pipelining
+latencies
