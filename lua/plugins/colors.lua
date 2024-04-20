@@ -5,9 +5,11 @@ return {
         require("gruvbox").setup({
             contrast = "hard",
             overrides = {
-                ["@punctuation.bracket"] = { link = "Special" },
-                ["@punctuation.delimiter"] = { link = "Special" },
                 ["@punctuation.special"] = { link = "Special" },
+                ["@punctuation.delimiter"] = { link = "Special" },
+                ["@punctuation.bracket"] = { link = "Special" },
+                ["@punctuation"] = { link = "Special" },
+                ["Delimiter"] = { link = "Special" },
             },
         })
         vim.cmd.colorscheme("gruvbox")
