@@ -194,3 +194,10 @@ Correlator
 Maskable
 pipelining
 latencies
+timelines
+undepreciated
+Datagram
+datagram
+connectionless
+checksum
+performant
