@@ -17,7 +17,7 @@ return {
                     ".*synctex.gz",
                     ".*.fls",
                     ".*.fdb_latexmk",
-                    ".*.aux",
+                    ".*.aux$",
                 },
             },
         })
