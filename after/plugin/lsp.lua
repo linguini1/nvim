@@ -5,6 +5,7 @@ local mason_lspconfig = require("mason-lspconfig")
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local lsnip = require("luasnip")
+local conform = require("conform")
 
 -- LSP attach and capabilities
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -18,8 +19,8 @@ local function on_attach()
     vim.keymap.set(
         "n",
         "gq",
-        function() vim.lsp.buf.format({ async = true }) end,
-        { buffer = 0, desc = "Jump to signature help." }
+        function() conform.format({ timeout_ms = 500, lsp_fallback = true, async = true }) end,
+        { buffer = 0, desc = "Format buffer." }
     )
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0, desc = "Rename symbol under cursor." })
     vim.keymap.set(
