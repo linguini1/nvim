@@ -42,3 +42,9 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
 end
 
 if vim.g.started_by_firenvim then vim.opt.wrap = true end
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "kconfig",
+    callback = function() vim.opt_local.expandtab = false end,
+    desc = "Use tabs instead of spaces in Kconfig files to conform to NuttX standards",
+})
