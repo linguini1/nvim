@@ -49,7 +49,7 @@ mason_lspconfig.setup({
     ensure_installed = {
         "eslint",
         "pyright",
-        "emmet_ls",
+        "emmet_language_server",
         "cssls",
         "lua_ls",
         "clangd",
@@ -124,6 +124,10 @@ lspconfig.eslint.setup({
     capabilities = lsp_capabilities,
 })
 lspconfig.ts_ls.setup({
+    on_attach = on_attach,
+    capabilities = lsp_capabilities,
+})
+lspconfig.emmet_language_server.setup({
     on_attach = on_attach,
     capabilities = lsp_capabilities,
 })
