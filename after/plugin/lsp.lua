@@ -56,6 +56,7 @@ mason_lspconfig.setup({
         "rust_analyzer",
         "texlab",
     },
+    automatic_enable = false,
 })
 
 -- Luasnip
