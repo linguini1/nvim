@@ -1,22 +1,13 @@
-local function tag(tag_type)
-    return sn(nil, {
-        unpack(fmt("<{}>\n\t{}\n<{}>", {
-            t(tag_type),
-            i(0),
-            t(tag_type),
-        })),
-    })
-end
-
-local class = sn({ trig = [[([a-zA-Z]+)\.([a-zA-Z]+)]], regTrig = true, trigEngine = "pattern" }, {
-    d(1, function(args, parent)
-        return
-            -- Create a tag snippet with the tag name and class
-            tag(parent.snippet.captures[1])
-    end),
+local blog_figure = s({ trig = "figure", dscr = "Figure element for my blog" }, {
+    unpack(fmt('<div class="figure">\n\t<img src="{}" alt="{}" size="{}">\n\t<p>{}</p>\n</div>', {
+        i(1, "link"),
+        i(2, "alt-text"),
+        i(3, "80%"),
+        i(4, "caption"),
+    })),
 })
 
 -- Regular snippets
-return {},
+return { blog_figure },
 -- Auto snippets
 {}
