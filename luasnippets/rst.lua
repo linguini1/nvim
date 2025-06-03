@@ -54,16 +54,17 @@ local link = s({ trig = "link", name = "RST hyperlink", dscr = "RST hyperlink" }
 
 local doc_link = s({ trig = ":doc", name = ":doc:", dscr = "Documentation link" }, {
     t(":doc:`"),
-    c(1, {
-        t(),
-        sn(nil, {
-            i(1, "text"),
-            t(" "),
-        }),
-    }),
-    t("<"),
-    i(2, "link"),
-    t(">`"),
+    i(1),
+    d(2, function(args)
+        if string.find(args[1][1], " ") == nil and string.find(args[1][1], "/") ~= nil then
+            -- The text is a link already
+            return sn(nil, { t() })
+        else
+            -- The text is text and we need link braces
+            return sn(nil, { t(" <"), i(1, "link"), t(">") })
+        end
+    end, { 1 }),
+    t("`"),
 })
 
 return
