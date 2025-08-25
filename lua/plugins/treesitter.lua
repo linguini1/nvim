@@ -3,7 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = function() vim.cmd("silent! TSUpdate") end,
         config = function()
-            require("nvim-treesitter.install").compilers = { "gcc" }
+            require("nvim-treesitter.install").compilers = { "clang", "gcc" }
             require("nvim-treesitter.configs").setup({
                 ensure_installed = {
                     "lua",
