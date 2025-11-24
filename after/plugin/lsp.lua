@@ -1,5 +1,4 @@
 -- Lsp-zero
-local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local cmp = require("cmp")
@@ -67,8 +66,9 @@ lsnip.setup({
     enable_autosnippets = true,
 })
 
--- Language servers
-lspconfig.lua_ls.setup({
+-- Language server configurations
+
+vim.lsp.config("lua_ls", {
     on_attach = on_attach,
     capabilities = lsp_capabilities,
     settings = {
@@ -82,15 +82,9 @@ lspconfig.lua_ls.setup({
         },
     },
 })
-lspconfig.clangd.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.pyright.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.rust_analyzer.setup({
+vim.lsp.enable("lua_ls")
+
+vim.lsp.config("rust_analyzer", {
     on_attach = on_attach,
     capabilities = lsp_capabilities,
     settings = {
@@ -104,41 +98,38 @@ lspconfig.rust_analyzer.setup({
         },
     },
 })
-lspconfig.texlab.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.hdl_checker.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.html.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.cssls.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.eslint.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.ts_ls.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.emmet_language_server.setup({
-    on_attach = on_attach,
-    capabilities = lsp_capabilities,
-})
-lspconfig.jdtls.setup({
+vim.lsp.enable("rust_analyzer")
+
+vim.lsp.config("jdtls", {
     on_attach = on_attach,
     capabilities = lsp_capabilities,
     java = {
         home = vim.fn.expand("$JAVA_HOME"),
     },
 })
+vim.lsp.enable("jdtls")
+
+-- Loop to configure language servers with no special options
+
+local regular_lsps = {
+    "clangd",
+    "pyright",
+    "texlab",
+    "hdl_checker",
+    "html",
+    "cssls",
+    "eslint",
+    "ts_ls",
+    "emmet_language_server",
+}
+
+for _, l in ipairs(regular_lsps) do
+    vim.lsp.config(l, {
+        on_attach = on_attach,
+        capabilities = lsp_capabilities,
+    })
+    vim.lsp.enable(l) -- Enable it
+end
 
 -- Completion setup
 cmp.setup({
