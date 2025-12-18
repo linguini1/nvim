@@ -17,8 +17,8 @@ vim.opt.fillchars = {
     eob = " ",
 }
 vim.opt.scrolloff = 10
-vim.opt.colorcolumn = "120"
-vim.opt.textwidth = 120
+vim.opt.colorcolumn = "80"
+vim.opt.textwidth = 80
 vim.opt.foldmethod = "expr"
 vim.opt.foldlevel = 99
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

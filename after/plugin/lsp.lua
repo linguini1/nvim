@@ -93,7 +93,7 @@ vim.lsp.config("rust_analyzer", {
                 command = "clippy",
             },
             rustfmt = {
-                extraArgs = { "--config", "max_width=120" },
+                extraArgs = { "--config", "max_width=80" },
             },
         },
     },
