@@ -24,10 +24,10 @@ return {
                     prepend_args = { "-m", "-l" },
                 },
                 prettier = {
-                    prepend_args = { "--print-width", "120" },
+                    prepend_args = { "--print-width", "80" },
                 },
                 black = {
-                    prepend_args = { "--line-length=120" },
+                    prepend_args = { "--line-length=80" },
                 },
             },
         })

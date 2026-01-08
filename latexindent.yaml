@@ -1,4 +1,4 @@
 defaultIndent: "    "
 modifyLineBreaks:
   textWrapOptions:
-    columns: 120
+    columns: 80
