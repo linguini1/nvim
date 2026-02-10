@@ -7,6 +7,7 @@ return {
         -- Don't start firenvim for any website in this list
         local ignored_sites = {
             "https://www\\.keybr\\.com",
+            "https://www\\.desmos\\.com",
         }
 
         -- This object is what gets assigned to localSettings in the firenvim configuration
