@@ -9,6 +9,7 @@ return {
             "https://www\\.keybr\\.com",
             "https://www\\.desmos\\.com",
             "https://joshuagrams\\.github\\.io",
+            "https://didoesdigital\\.com",
         }
 
         -- This object is what gets assigned to localSettings in the firenvim configuration
