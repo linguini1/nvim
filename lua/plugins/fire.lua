@@ -8,6 +8,7 @@ return {
         local ignored_sites = {
             "https://www\\.keybr\\.com",
             "https://www\\.desmos\\.com",
+            "https://joshuagrams\\.github\\.io",
         }
 
         -- This object is what gets assigned to localSettings in the firenvim configuration
