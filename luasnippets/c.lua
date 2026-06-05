@@ -16,12 +16,9 @@ table.insert(
     })
 )
 
-table.insert(
-    regular_snippets,
-    s(
-        { trig = "/**", dscr = "Multi-line javadoc comment." },
-        { t("/** "), i(1, "comment"), t(" */") }
-    )
+local javadoc_comment = s(
+    { trig = "/**", dscr = "Multi-line javadoc comment." },
+    { t("/** "), i(1, "comment"), t(" */") }
 )
 
 table.insert(
