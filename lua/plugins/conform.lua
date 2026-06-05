@@ -29,6 +29,9 @@ return {
                 black = {
                     prepend_args = { "--line-length=80" },
                 },
+                stylua = {
+                    prepend_args = { "--column-width=80" },
+                },
             },
         })
     end,
