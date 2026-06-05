@@ -12,7 +12,7 @@ table.insert(
             { 1 }
         ),
         i(0),
-        f(function(args) return { "", "#endif // " .. args[1][1] } end, { 1 }),
+        f(function(args) return { "", "#endif /* " .. args[1][1] .. " * /" } end, { 1 }),
     })
 )
 
