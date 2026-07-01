@@ -13,7 +13,7 @@ table.insert(
         ),
         i(0),
         f(
-            function(args) return { "", "#endif /* " .. args[1][1] .. " * /" } end,
+            function(args) return { "", "#endif /* " .. args[1][1] .. " */" } end,
             { 1 }
         ),
     })
